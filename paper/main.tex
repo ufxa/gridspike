@@ -1,0 +1,141 @@
+% ===========================================================================
+% GridSpike -- anonymized manuscript for Engineering Applications of
+% Artificial Intelligence (Elsevier), double-anonymized review.
+%
+% Author names, affiliations, CRediT, funding and competing-interest details
+% are in the SEPARATE title page file: titlepage.tex (compile it on its own).
+% This file must contain nothing that identifies the authors.
+%
+% Build:  make            (latexmk -pdf main.tex)
+% ===========================================================================
+\documentclass[final,3p,times,twocolumn]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{rotating}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,backgrounds,calc}
+\usepackage[switch]{lineno}
+\usepackage[hidelinks]{hyperref}
+% Cross-references into the supplementary document (compiled separately):
+% \ref{...} on a label that lives only in supplementary.tex resolves to its
+% S-number there. xr would also import the other file's \bibcite entries
+% (renumbering shared citations), so the build filters supplementary.aux
+% down to its \newlabel lines into supplabels.aux and xr reads that file:
+%   Select-String '\\newlabel' supplementary.aux > supplabels.aux
+\usepackage{xr}
+\externaldocument{supplabels}
+
+\linenumbers
+
+% Float packing: this manuscript is table-dense (twenty full-width floats), and
+% LaTeX's defaults strand text pages behind them. These are typographic limits,
+% not content changes.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.75}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.72}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.68}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{4}
+\setlength{\textfloatsep}{9pt plus 2pt minus 3pt}
+\setlength{\dbltextfloatsep}{9pt plus 2pt minus 3pt}
+\setlength{\floatsep}{7pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{7pt plus 2pt minus 2pt}
+\setlength{\intextsep}{7pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{0pt}
+% Review mode's line stretch (\baselinestretch = 1.5) applies inside floats as
+% well; with this many dense tables it pushes them over the page height.
+% Float contents therefore stay single-spaced while the body text keeps the
+% required stretch (captions included, which is also the common review style).
+\AtBeginEnvironment{table}{\linespread{1}}
+\AtBeginEnvironment{table*}{\linespread{1}}
+\AtBeginEnvironment{figure}{\linespread{1}}
+\AtBeginEnvironment{figure*}{\linespread{1}}
+\AtBeginEnvironment{algorithm}{\linespread{1}}
+% natbib inter-entry spacing: 76 references, so this is worth a third of a page.
+\AtBeginDocument{\setlength{\bibsep}{0pt plus 0.3ex}}
+
+\input{macros}
+
+\journal{Engineering Applications of Artificial Intelligence}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{\sysname: Defense-aware stress-testing of federated edge
+intelligence for event classification in IEC 61850 substations}
+
+% --- Double-anonymized submission: no author block here by design. ---------
+
+\begin{abstract}
+Distribution utilities need event classification on substation telemetry --
+for disturbance triage, targeted inspection and reliability analytics --
+but no utility holds enough labelled events to train one alone,
+and pooling measurements collides with confidentiality and
+critical-infrastructure rules. Federated learning is the institutional
+answer, provided the federation survives heterogeneous data, a bounded edge
+and adversarial participants. We present \sysname, a federated framework and
+open benchmark -- five feeders in quasi-static OpenDSS, non-IID by
+feeder identity and Dirichlet label skew -- stress-tested. Three
+classifiers -- convolutional--recurrent, spiking, selective state-space --
+learned over ten substations behind a Byzantine-admission pipeline:
+fidelity scoring, simulated PBFT agreement, robust aggregation,
+hash-chained per round. Across an expanded battery of $6{,}836$ run
+records the models trace an accuracy--energy--latency trade-off. On the
+leakage-controlled chronological split -- our headline protocol -- the
+reference and the state-space model tie
+(\macroF{} $0.596$ vs.\ $0.590$, paired $p=0.56$), and the spiking model --
+at $0.7\%$ of the reference's energy -- collapses to $0.13$; the higher
+$0.77/0.60/0.16$ of the random split is a leakage-inflated ceiling. Only
+the reference's GPU \mbox{p99} ($3.3$\,ms) fits a $4$\,ms
+fast-message envelope ($82\%$); the others exceed it. Under a defense-aware
+adversary the pipeline beats neither plain averaging nor robust aggregation
+alone -- it buys auditability, not accuracy -- and usable local differential
+privacy is incompatible with the gate. In-cone magnitude at $10\times$
+breaks plain averaging, not the geometric median: honest rejection falls
+$0.80 \rightarrow 0.48$, attacker admission does not. The classifier provides
+event awareness and takes no part in trip decisions. Batteries
+regenerate from committed manifests; the original battery's configuration
+hashes verify at $67\%$.
+\end{abstract}
+
+\begin{keyword}
+Federated learning \sep State-space models \sep Spiking neural networks \sep
+Byzantine robustness \sep IEC 61850 \sep Power distribution \sep
+Differential privacy
+\end{keyword}
+
+\end{frontmatter}
+
+\input{highlights}
+
+\input{sections/01_introduction}
+% 02_related_work fused into 01_introduction; 03_preliminaries compressed
+% into 04_architecture + supplementary S1; 10_conclusion merged into
+% 09_limitations. The three files remain on disk as stubs documenting this.
+\input{sections/04_architecture}
+\input{sections/05_testbed}
+\input{sections/06_experimental_design}
+\input{sections/07_results}
+\input{sections/08_discussion}
+\input{sections/09_limitations}
+\input{sections/11_declarations}
+
+\bibliographystyle{elsarticle-num}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,26 @@
+! FedGrid variant of the IEEE EU LV Test Feeder Master.dss (the data-simulation module).
+! Identical to the pristine Master.dss vendored alongside, except:
+!   * the Monitors.txt redirect is omitted (906 monitors are irrelevant to our
+!     co-simulation loop and slow every step; we read circuit state via the API),
+!   * the energymeter and the trailing solve are omitted (FeederSim issues its
+!     own solve sequence and options).
+! All component files (LineCode/LoadShapes/Lines/Transformers/Loads/Buscoords)
+! are the unmodified IEEE PES / EPRI distribution files.
+
+clear
+
+Set DefaultBaseFrequency=50  ! for European system
+
+New circuit.LVTest
+Edit Vsource.Source BasekV=11 pu=1.05  ISC3=3000  ISC1=5
+Redirect LineCode.txt
+Redirect LoadShapes.txt
+batchedit loadshape..* useactual=no
+Redirect Lines.txt
+Redirect Transformers.txt
+Redirect Loads.txt
+
+Set voltagebases=[11  .416]
+Calcvoltagebases
+
+buscoords Buscoords.txt

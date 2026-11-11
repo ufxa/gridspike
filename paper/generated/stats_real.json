@@ -1,0 +1,794 @@
+{
+  "friedman_nemenyi": [
+    {
+      "Q": 6.238095238095241,
+      "arms": [
+        "centralized",
+        "fedavg",
+        "fedprox",
+        "local",
+        "pipeline_geomed",
+        "pipeline_krum"
+      ],
+      "attack": null,
+      "avg_ranks": [
+        3.0,
+        3.3333333333333335,
+        5.666666666666667,
+        2.3333333333333335,
+        4.0,
+        2.6666666666666665
+      ],
+      "model": "cnn_lstm",
+      "nemenyi_cd": 4.353446910208048,
+      "p": 0.28373580351894634,
+      "posthoc": {
+        "centralized_vs_fedavg": {
+          "p": 0.8272593465627113,
+          "p_holm": 1.0,
+          "z": 0.21821789023599247
+        },
+        "centralized_vs_fedprox": {
+          "p": 0.08085559837005228,
+          "p_holm": 1.0,
+          "z": 1.7457431218879391
+        },
+        "centralized_vs_local": {
+          "p": 0.6625205835400576,
+          "p_holm": 1.0,
+          "z": 0.4364357804719846
+        },
+        "centralized_vs_pipeline_geomed": {
+          "p": 0.5126907602619235,
+          "p_holm": 1.0,
+          "z": 0.6546536707079771
+        },
+        "centralized_vs_pipeline_krum": {
+          "p": 0.8272593465627113,
+          "p_holm": 1.0,
+          "z": 0.21821789023599247
+        },
+        "fedavg_vs_fedprox": {
+          "p": 0.12663045794761715,
+          "p_holm": 1.0,
+          "z": 1.5275252316519468
+        },
+        "fedavg_vs_local": {
+          "p": 0.5126907602619235,
+          "p_holm": 1.0,
+          "z": 0.6546536707079771
+        },
+        "fedavg_vs_pipeline_geomed": {
+          "p": 0.6625205835400576,
+          "p_holm": 1.0,
+          "z": 0.4364357804719846
+        },
+        "fedavg_vs_pipeline_krum": {
+          "p": 0.6625205835400574,
+          "p_holm": 1.0,
+          "z": 0.43643578047198495
+        },
+        "fedprox_vs_local": {
+          "p": 0.02909633174125223,
+          "p_holm": 0.4364449761187834,
+          "z": 2.1821789023599236
+        },
+        "fedprox_vs_pipeline_geomed": {
+          "p": 0.2752335240748343,
+          "p_holm": 1.0,
+          "z": 1.091089451179962
+        },
+        "fedprox_vs_pipeline_krum": {
+          "p": 0.04953461343562671,
+          "p_holm": 0.693484588098774,
+          "z": 1.9639610121239317
+        },
+        "local_vs_pipeline_geomed": {
+          "p": 0.27523352407483437,
+          "p_holm": 1.0,
+          "z": 1.0910894511799618
+        },
+        "local_vs_pipeline_krum": {
+          "p": 0.8272593465627115,
+          "p_holm": 1.0,
+          "z": 0.21821789023599217
+        },
+        "pipeline_geomed_vs_pipeline_krum": {
+          "p": 0.38273308888522606,
+          "p_holm": 1.0,
+          "z": 0.8728715609439696
+        }
+      }
+    },
+    {
+      "Q": 14.19047619047619,
+      "arms": [
+        "centralized",
+        "fedavg",
+        "fedprox",
+        "local",
+        "pipeline_geomed",
+        "pipeline_krum"
+      ],
+      "attack": null,
+      "avg_ranks": [
+        6.0,
+        4.5,
+        4.5,
+        1.3333333333333333,
+        3.0,
+        1.6666666666666667
+      ],
+      "model": "snn",
+      "nemenyi_cd": 4.353446910208048,
+      "p": 0.014443699968047037,
+      "posthoc": {
+        "centralized_vs_fedavg": {
+          "p": 0.32610945202048913,
+          "p_holm": 1.0,
+          "z": 0.9819805060619656
+        },
+        "centralized_vs_fedprox": {
+          "p": 0.32610945202048913,
+          "p_holm": 1.0,
+          "z": 0.9819805060619656
+        },
+        "centralized_vs_local": {
+          "p": 0.0022502265680857912,
+          "p_holm": 0.033753398521286865,
+          "z": 3.0550504633038935
+        },
+        "centralized_vs_pipeline_geomed": {
+          "p": 0.04953461343562678,
+          "p_holm": 0.5448807477918947,
+          "z": 1.9639610121239313
+        },
+        "centralized_vs_pipeline_krum": {
+          "p": 0.004556349803185146,
+          "p_holm": 0.06378889724459205,
+          "z": 2.8368325730679005
+        },
+        "fedavg_vs_fedprox": {
+          "p": 1.0,
+          "p_holm": 1.0,
+          "z": 0.0
+        },
+        "fedavg_vs_local": {
+          "p": 0.038165769458830004,
+          "p_holm": 0.49615500296479004,
+          "z": 2.0730699572419278
+        },
+        "fedavg_vs_pipeline_geomed": {
+          "p": 0.32610945202048913,
+          "p_holm": 1.0,
+          "z": 0.9819805060619656
+        },
+        "fedavg_vs_pipeline_krum": {
+          "p": 0.06361735444216388,
+          "p_holm": 0.6361735444216388,
+          "z": 1.854852067005935
+        },
+        "fedprox_vs_local": {
+          "p": 0.038165769458830004,
+          "p_holm": 0.49615500296479004,
+          "z": 2.0730699572419278
+        },
+        "fedprox_vs_pipeline_geomed": {
+          "p": 0.32610945202048913,
+          "p_holm": 1.0,
+          "z": 0.9819805060619656
+        },
+        "fedprox_vs_pipeline_krum": {
+          "p": 0.06361735444216388,
+          "p_holm": 0.6361735444216388,
+          "z": 1.854852067005935
+        },
+        "local_vs_pipeline_geomed": {
+          "p": 0.27523352407483437,
+          "p_holm": 1.0,
+          "z": 1.0910894511799618
+        },
+        "local_vs_pipeline_krum": {
+          "p": 0.8272593465627113,
+          "p_holm": 1.0,
+          "z": 0.21821789023599247
+        },
+        "pipeline_geomed_vs_pipeline_krum": {
+          "p": 0.38273308888522617,
+          "p_holm": 1.0,
+          "z": 0.8728715609439694
+        }
+      }
+    },
+    {
+      "Q": 12.904761904761898,
+      "arms": [
+        "centralized",
+        "fedavg",
+        "fedprox",
+        "local",
+        "pipeline_geomed",
+        "pipeline_krum"
+      ],
+      "attack": null,
+      "avg_ranks": [
+        5.0,
+        5.0,
+        5.0,
+        1.0,
+        2.6666666666666665,
+        2.3333333333333335
+      ],
+      "model": "ssm",
+      "nemenyi_cd": 4.353446910208048,
+      "p": 0.024287786969900662,
+      "posthoc": {
+        "centralized_vs_fedavg": {
+          "p": 1.0,
+          "p_holm": 1.0,
+          "z": 0.0
+        },
+        "centralized_vs_fedprox": {
+          "p": 1.0,
+          "p_holm": 1.0,
+          "z": 0.0
+        },
+        "centralized_vs_local": {
+          "p": 0.008828760952818636,
+          "p_holm": 0.13243141429227953,
+          "z": 2.6186146828319083
+        },
+        "centralized_vs_pipeline_geomed": {
+          "p": 0.12663045794761715,
+          "p_holm": 1.0,
+          "z": 1.5275252316519468
+        },
+        "centralized_vs_pipeline_krum": {
+          "p": 0.08085559837005234,
+          "p_holm": 0.970267180440628,
+          "z": 1.745743121887939
+        },
+        "fedavg_vs_fedprox": {
+          "p": 1.0,
+          "p_holm": 1.0,
+          "z": 0.0
+        },
+        "fedavg_vs_local": {
+          "p": 0.008828760952818636,
+          "p_holm": 0.13243141429227953,
+          "z": 2.6186146828319083
+        },
+        "fedavg_vs_pipeline_geomed": {
+          "p": 0.12663045794761715,
+          "p_holm": 1.0,
+          "z": 1.5275252316519468
+        },
+        "fedavg_vs_pipeline_krum": {
+          "p": 0.08085559837005234,
+          "p_holm": 0.970267180440628,
+          "z": 1.745743121887939
+        },
+        "fedprox_vs_local": {
+          "p": 0.008828760952818636,
+          "p_holm": 0.13243141429227953,
+          "z": 2.6186146828319083
+        },
+        "fedprox_vs_pipeline_geomed": {
+          "p": 0.12663045794761715,
+          "p_holm": 1.0,
+          "z": 1.5275252316519468
+        },
+        "fedprox_vs_pipeline_krum": {
+          "p": 0.08085559837005234,
+          "p_holm": 0.970267180440628,
+          "z": 1.745743121887939
+        },
+        "local_vs_pipeline_geomed": {
+          "p": 0.27523352407483437,
+          "p_holm": 1.0,
+          "z": 1.0910894511799618
+        },
+        "local_vs_pipeline_krum": {
+          "p": 0.38273308888522606,
+          "p_holm": 1.0,
+          "z": 0.8728715609439696
+        },
+        "pipeline_geomed_vs_pipeline_krum": {
+          "p": 0.8272593465627115,
+          "p_holm": 1.0,
+          "z": 0.21821789023599217
+        }
+      }
+    }
+  ],
+  "mcnemar_parity": {
+    "available": true,
+    "per_seed": [
+      {
+        "arm": "centralized",
+        "b": 291.0,
+        "c": 0.0,
+        "p": 5.026911708464872e-88,
+        "seed": 0,
+        "stat": 289.0034364261168
+      },
+      {
+        "arm": "centralized",
+        "b": 71.0,
+        "c": 0.0,
+        "p": 8.470329472543003e-22,
+        "seed": 1,
+        "stat": 69.01408450704226
+      },
+      {
+        "arm": "centralized",
+        "b": 247.0,
+        "c": 0.0,
+        "p": 8.843436600416711e-75,
+        "seed": 2,
+        "stat": 245.00404858299595
+      },
+      {
+        "arm": "fedavg",
+        "b": 288.0,
+        "c": 0.0,
+        "p": 4.021529366771898e-87,
+        "seed": 0,
+        "stat": 286.00347222222223
+      },
+      {
+        "arm": "fedavg",
+        "b": 103.0,
+        "c": 6.0,
+        "p": 6.61789839683711e-24,
+        "seed": 1,
+        "stat": 84.55045871559633
+      },
+      {
+        "arm": "fedavg",
+        "b": 113.0,
+        "c": 1.0,
+        "p": 1.1074097180226606e-32,
+        "seed": 2,
+        "stat": 108.07894736842105
+      }
+    ],
+    "pooled": {
+      "b": 1113.0,
+      "c": 7.0,
+      "p": 6.082e-320,
+      "stat": 1090.200892857143
+    }
+  },
+  "meta": {
+    "alpha": 0.05,
+    "bootstrap_resamples": 10000,
+    "n_runs": 54,
+    "stats_path": "numpy+stdlib (scipy available but unused)"
+  },
+  "pairwise_wilcoxon_holm": [
+    {
+      "T_plus": 2.0,
+      "arm": "centralized",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -0.1111111111111111,
+      "diff_ci_high": 0.032105971420863945,
+      "diff_ci_low": -0.32538206281608006,
+      "magnitude": "negligible",
+      "mean_diff": -0.09361457514852863,
+      "model": "cnn_lstm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.75,
+      "p_two": 0.75
+    },
+    {
+      "T_plus": 6.0,
+      "arm": "fedprox",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 0.5555555555555556,
+      "diff_ci_high": 0.13062438488382322,
+      "diff_ci_low": 0.12279584219538153,
+      "magnitude": "large",
+      "mean_diff": 0.12712122295632497,
+      "model": "cnn_lstm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.125,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 1.0,
+      "arm": "local",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -0.3333333333333333,
+      "diff_ci_high": -0.027779481538220147,
+      "diff_ci_low": -0.36280639828882316,
+      "magnitude": "medium",
+      "mean_diff": -0.17699762012002215,
+      "model": "cnn_lstm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.875,
+      "p_two": 0.5
+    },
+    {
+      "T_plus": 4.0,
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 0.1111111111111111,
+      "diff_ci_high": 0.07472042829697823,
+      "diff_ci_low": -0.055641596192357756,
+      "magnitude": "negligible",
+      "mean_diff": 0.023247238568776345,
+      "model": "cnn_lstm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.375,
+      "p_two": 0.75
+    },
+    {
+      "T_plus": 1.0,
+      "arm": "pipeline_krum",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -0.5555555555555556,
+      "diff_ci_high": -0.03574957404880441,
+      "diff_ci_low": -0.41265031642229516,
+      "magnitude": "large",
+      "mean_diff": -0.2169580604787149,
+      "model": "cnn_lstm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.875,
+      "p_two": 0.5
+    },
+    {
+      "T_plus": 6.0,
+      "arm": "centralized",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 1.0,
+      "diff_ci_high": 0.00591844813778201,
+      "diff_ci_low": 0.0012085101260870257,
+      "magnitude": "large",
+      "mean_diff": 0.0037822766781545614,
+      "model": "snn",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.125,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 2.0,
+      "arm": "fedprox",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 0.0,
+      "diff_ci_high": 0.0025360092904255596,
+      "diff_ci_low": -0.0012562886735489887,
+      "magnitude": "negligible",
+      "mean_diff": 0.0008492417540297836,
+      "model": "snn",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 0.5,
+      "p_two": 1.0
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "local",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -1.0,
+      "diff_ci_high": -0.04942438050411698,
+      "diff_ci_low": -0.0600189152018733,
+      "magnitude": "large",
+      "mean_diff": -0.054027974563442695,
+      "model": "snn",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -0.7777777777777778,
+      "diff_ci_high": -0.002591625879989549,
+      "diff_ci_low": -0.012222846326594983,
+      "magnitude": "large",
+      "mean_diff": -0.005813667677774914,
+      "model": "snn",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "pipeline_krum",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -1.0,
+      "diff_ci_high": -0.015663971539899697,
+      "diff_ci_low": -0.06256862056367152,
+      "magnitude": "large",
+      "mean_diff": -0.034006615049531806,
+      "model": "snn",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "centralized",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 0.0,
+      "diff_ci_high": 0.0,
+      "diff_ci_low": 0.0,
+      "magnitude": "negligible",
+      "mean_diff": 0.0,
+      "model": "ssm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 1.0
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "fedprox",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": 0.0,
+      "diff_ci_high": 0.0,
+      "diff_ci_low": 0.0,
+      "magnitude": "negligible",
+      "mean_diff": 0.0,
+      "model": "ssm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 1.0
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "local",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -1.0,
+      "diff_ci_high": -0.2802727598929597,
+      "diff_ci_low": -0.3035132813386039,
+      "magnitude": "large",
+      "mean_diff": -0.28962283028969177,
+      "model": "ssm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -1.0,
+      "diff_ci_high": -0.030551955480029574,
+      "diff_ci_low": -0.04200568016814088,
+      "magnitude": "large",
+      "mean_diff": -0.03609427798680024,
+      "model": "ssm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    },
+    {
+      "T_plus": 0.0,
+      "arm": "pipeline_krum",
+      "attack": null,
+      "baseline": "fedavg",
+      "cliffs_delta": -1.0,
+      "diff_ci_high": -0.037956061938903884,
+      "diff_ci_low": -0.11905338581087899,
+      "magnitude": "large",
+      "mean_diff": -0.0732446237970128,
+      "model": "ssm",
+      "n_pairs": 3,
+      "p_holm": 1.0,
+      "p_one_greater": 1.0,
+      "p_two": 0.25
+    }
+  ],
+  "per_arm": {
+    "centralized|cnn_lstm|clean": {
+      "arm": "centralized",
+      "attack": null,
+      "bca_ci_high": 0.7701859212502599,
+      "bca_ci_low": 0.41857331913750384,
+      "mean_macro_f1": 0.6094940992931096,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.25619195062821226
+    },
+    "centralized|snn|clean": {
+      "arm": "centralized",
+      "attack": null,
+      "bca_ci_high": 1.0,
+      "bca_ci_low": 1.0,
+      "mean_macro_f1": 1.0,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.0
+    },
+    "centralized|ssm|clean": {
+      "arm": "centralized",
+      "attack": null,
+      "bca_ci_high": 1.0,
+      "bca_ci_low": 1.0,
+      "mean_macro_f1": 1.0,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.0
+    },
+    "fedavg|cnn_lstm|clean": {
+      "arm": "fedavg",
+      "attack": null,
+      "bca_ci_high": 0.8441268909275549,
+      "bca_ci_low": 0.42581455865910733,
+      "mean_macro_f1": 0.7031086744416383,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.24024908225306632
+    },
+    "fedavg|snn|clean": {
+      "arm": "fedavg",
+      "attack": null,
+      "bca_ci_high": 0.9983538947814729,
+      "bca_ci_low": 0.9923829754950306,
+      "mean_macro_f1": 0.9962177233218453,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.003385235511383646
+    },
+    "fedavg|ssm|clean": {
+      "arm": "fedavg",
+      "attack": null,
+      "bca_ci_high": 1.0,
+      "bca_ci_low": 1.0,
+      "mean_macro_f1": 1.0,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.0
+    },
+    "fedprox|cnn_lstm|clean": {
+      "arm": "fedprox",
+      "attack": null,
+      "bca_ci_high": 0.9704258950504346,
+      "bca_ci_low": 0.5510770573548244,
+      "mean_macro_f1": 0.8302298973979632,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.24176059638840883
+    },
+    "fedprox|snn|clean": {
+      "arm": "fedprox",
+      "attack": null,
+      "bca_ci_high": 0.9979351318902898,
+      "bca_ci_low": 0.9961869894306691,
+      "mean_macro_f1": 0.9970669650758751,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.0014935873236526403
+    },
+    "fedprox|ssm|clean": {
+      "arm": "fedprox",
+      "attack": null,
+      "bca_ci_high": 1.0,
+      "bca_ci_low": 1.0,
+      "mean_macro_f1": 1.0,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.0
+    },
+    "local|cnn_lstm|clean": {
+      "arm": "local",
+      "attack": null,
+      "bca_ci_high": 0.5674440110979174,
+      "bca_ci_low": 0.47183585826012714,
+      "mean_macro_f1": 0.5261110543216161,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.06342650526294438
+    },
+    "local|snn|clean": {
+      "arm": "local",
+      "attack": null,
+      "bca_ci_high": 0.944657171358101,
+      "bca_ci_low": 0.9387725746720396,
+      "mean_macro_f1": 0.9421897487584028,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.0037336699999986635
+    },
+    "local|ssm|clean": {
+      "arm": "local",
+      "attack": null,
+      "bca_ci_high": 0.7197272401070404,
+      "bca_ci_low": 0.696486718661396,
+      "mean_macro_f1": 0.7103771697103083,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.01402704468140313
+    },
+    "pipeline_geomed|cnn_lstm|clean": {
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "bca_ci_high": 0.8433165848010615,
+      "bca_ci_low": 0.5245925316513552,
+      "mean_macro_f1": 0.7263559130104146,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.1812681694209601
+    },
+    "pipeline_geomed|snn|clean": {
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "bca_ci_high": 0.9931885023494158,
+      "bca_ci_low": 0.9865686435473181,
+      "mean_macro_f1": 0.9904040556440705,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.004218286827839522
+    },
+    "pipeline_geomed|ssm|clean": {
+      "arm": "pipeline_geomed",
+      "attack": null,
+      "bca_ci_high": 0.9694480445199704,
+      "bca_ci_low": 0.9579943198318591,
+      "mean_macro_f1": 0.9639057220131998,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.00929645093378274
+    },
+    "pipeline_krum|cnn_lstm|clean": {
+      "arm": "pipeline_krum",
+      "attack": null,
+      "bca_ci_high": 0.5567897015265436,
+      "bca_ci_low": 0.44121802682962724,
+      "mean_macro_f1": 0.4861506139629234,
+      "model": "cnn_lstm",
+      "n": 3,
+      "std_macro_f1": 0.06763213689632729
+    },
+    "pipeline_krum|snn|clean": {
+      "arm": "pipeline_krum",
+      "attack": null,
+      "bca_ci_high": 0.9801161566895056,
+      "bca_ci_low": 0.9362228693102415,
+      "mean_macro_f1": 0.9622111082723137,
+      "model": "snn",
+      "n": 3,
+      "std_macro_f1": 0.026899747775882346
+    },
+    "pipeline_krum|ssm|clean": {
+      "arm": "pipeline_krum",
+      "attack": null,
+      "bca_ci_high": 0.9620439380610962,
+      "bca_ci_low": 0.880946614189121,
+      "mean_macro_f1": 0.9267553762029873,
+      "model": "ssm",
+      "n": 3,
+      "std_macro_f1": 0.0543520324010422
+    }
+  },
+  "trends": []
+}

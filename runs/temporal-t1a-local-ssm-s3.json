@@ -1,0 +1,116 @@
+{
+  "config": {
+    "engine": {
+      "rounds": 30,
+      "strategy": "local"
+    },
+    "manifest": {
+      "arm": "local",
+      "block": "t1a_temporal",
+      "config": {
+        "attack": null,
+        "defense": null,
+        "federation": {
+          "alpha": 0.5,
+          "days": 30,
+          "iid": false,
+          "k": 10,
+          "seed": 3,
+          "split_mode": "temporal"
+        },
+        "ldp": null,
+        "mode": "local",
+        "model": {
+          "kwargs": {},
+          "name": "ssm"
+        },
+        "precision": "fp32",
+        "seed": 3,
+        "strategy": {
+          "name": "fedavg"
+        },
+        "training": {
+          "batch_size": 64,
+          "class_weighting": "effective_num",
+          "local_epochs": 1,
+          "lr": 0.001,
+          "optimizer": "adam",
+          "rounds": 30
+        }
+      },
+      "config_hash": "35e251852596ae8e933081e5120ff6bf7a6991dde6aed720d0aee08509021ffc",
+      "model": "ssm",
+      "run_id": "temporal-t1a-local-ssm-s3",
+      "seed": 3,
+      "tier": 1
+    }
+  },
+  "energy": null,
+  "env_fingerprint": "py3.10.12 | torch 2.5.1+cu121 | cuda 12.1 | NVIDIA GeForce RTX 3090",
+  "final": {
+    "acc": 0.7194087403598971,
+    "local_max_macro_f1": 0.22089555194870972,
+    "local_mean_macro_f1": 0.14716606730552956,
+    "local_min_macro_f1": 0.1124371326147019,
+    "local_std_macro_f1": 0.02988089587315697,
+    "macro_f1": 0.14716606730552956,
+    "per_client": [
+      {
+        "acc": 0.7982005141388174,
+        "cid": 0,
+        "macro_f1": 0.13960221917596924
+      },
+      {
+        "acc": 0.5208226221079691,
+        "cid": 1,
+        "macro_f1": 0.1417647747548782
+      },
+      {
+        "acc": 0.6557840616966581,
+        "cid": 2,
+        "macro_f1": 0.14132144499532875
+      },
+      {
+        "acc": 0.7406169665809769,
+        "cid": 3,
+        "macro_f1": 0.13987855204876765
+      },
+      {
+        "acc": 0.6316195372750643,
+        "cid": 4,
+        "macro_f1": 0.1124371326147019
+      },
+      {
+        "acc": 0.7817480719794344,
+        "cid": 5,
+        "macro_f1": 0.1789136629736619
+      },
+      {
+        "acc": 0.9038560411311054,
+        "cid": 6,
+        "macro_f1": 0.1361960421508676
+      },
+      {
+        "acc": 0.8143958868894602,
+        "cid": 7,
+        "macro_f1": 0.1447727821429024
+      },
+      {
+        "acc": 0.6663239074550128,
+        "cid": 8,
+        "macro_f1": 0.22089555194870972
+      },
+      {
+        "acc": 0.680719794344473,
+        "cid": 9,
+        "macro_f1": 0.11587851024950824
+      }
+    ],
+    "split": "local_test"
+  },
+  "git_commit": "unknown",
+  "latency": null,
+  "method": "local",
+  "rounds": [],
+  "seed": 3
+}

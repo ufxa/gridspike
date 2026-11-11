@@ -1,0 +1,72 @@
+{
+  "config": {
+    "diverged_reason": "Out of range float values are not JSON compliant: nan",
+    "manifest": {
+      "arm": "pipeline_krum",
+      "block": "t3tau",
+      "config": {
+        "attack": {
+          "fraction": 0.3,
+          "params": {},
+          "type": "adaptive_cosine"
+        },
+        "defense": {
+          "agg": "krum",
+          "f": 3,
+          "kind": "pipeline",
+          "m": 10,
+          "net_ms": "utility_wan",
+          "threshold": 1.0
+        },
+        "federation": {
+          "alpha": 0.5,
+          "days": 30,
+          "iid": false,
+          "k": 10,
+          "seed": 3
+        },
+        "ldp": {
+          "clip": 1.0,
+          "seed": 0,
+          "sigma": 1.0
+        },
+        "mode": "federated",
+        "model": {
+          "kwargs": {},
+          "name": "ssm"
+        },
+        "precision": "fp32",
+        "seed": 3,
+        "strategy": {
+          "name": "fedavg"
+        },
+        "training": {
+          "batch_size": 64,
+          "class_weighting": "effective_num",
+          "local_epochs": 1,
+          "lr": 0.001,
+          "optimizer": "adam",
+          "rounds": 30
+        }
+      },
+      "config_hash": "85d34fb1eacf52fb6db2ed62ef1b223ad5d5ce9a5729bda5b0abac46a3fe6b4e",
+      "model": "ssm",
+      "run_id": "t3tau-tau1p0-t2c-pipeline_krum-ssm-sg1p0-t0p7-s3",
+      "seed": 3,
+      "tier": 3
+    }
+  },
+  "energy": null,
+  "env_fingerprint": "py3.12.14 | torch 2.9.1+cu128 | cuda 12.8 | NVIDIA GeForce RTX 4090",
+  "final": {
+    "acc": 0.0,
+    "diverged": true,
+    "macro_f1": 0.0,
+    "note": "diverged (NaN fidelity score) under strong attack; audit ledger rejects NaN by design"
+  },
+  "git_commit": "unknown",
+  "latency": null,
+  "method": "ssm",
+  "rounds": [],
+  "seed": 3
+}

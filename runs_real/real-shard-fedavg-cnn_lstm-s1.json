@@ -1,0 +1,4236 @@
+{
+  "config": {
+    "engine": {
+      "attacks": {},
+      "batch_size": 64,
+      "class_weighting": "effective_num",
+      "device": "cpu",
+      "k": 10,
+      "ldp": null,
+      "local_epochs": 1,
+      "lr": 0.001,
+      "mu": null,
+      "optimizer": "adam",
+      "rounds": 30,
+      "run_id": "fedavg-seed1",
+      "strategy": "fedavg",
+      "validator": false
+    },
+    "manifest": {
+      "arm": "fedavg",
+      "block": "real",
+      "config": {
+        "attack": null,
+        "defense": null,
+        "federation": {
+          "alpha": 0.5,
+          "days": 0,
+          "iid": false,
+          "k": 10,
+          "partition": "shard",
+          "real_data_dir": "/root/fedgrid/data_real_msu",
+          "seed": 1,
+          "source": "msu",
+          "stride": 8
+        },
+        "ldp": null,
+        "mode": "federated",
+        "model": {
+          "kwargs": {},
+          "name": "cnn_lstm"
+        },
+        "precision": "fp32",
+        "seed": 1,
+        "strategy": {
+          "name": "fedavg"
+        },
+        "training": {
+          "batch_size": 64,
+          "class_weighting": "effective_num",
+          "local_epochs": 1,
+          "lr": 0.001,
+          "optimizer": "adam",
+          "rounds": 30
+        }
+      },
+      "config_hash": "5fcce9681c8a18843216baa5a5ca8800f9fca95275e74adac2c63a947d0c8df0",
+      "model": "cnn_lstm",
+      "run_id": "real-shard-fedavg-cnn_lstm-s1",
+      "seed": 1,
+      "tier": 1
+    }
+  },
+  "energy": null,
+  "env_fingerprint": "py3.12.13 | torch 2.13.0+cu130 | cuda 13.0 | NVIDIA GeForce RTX 3090",
+  "final": {
+    "acc": 0.897410358565737,
+    "confusion": [
+      [
+        166,
+        102,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        735,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "correct": [
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "loss": 0.20995733557469343,
+    "macro_f1": 0.8488692081168571,
+    "n_test": 1004,
+    "per_class_f1": [
+      0.7632183908045977,
+      0.9345200254291164,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "split": "global_test"
+  },
+  "git_commit": "1703c80bad8be32d48843f28661df5f48a3641a0",
+  "latency": null,
+  "method": "fedavg",
+  "rounds": [
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 1.7029316918695265,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 1.6789667411726348,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 1.7359842380845403,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 1.647967852945403,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 1.701571726903124,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 1.7019777401981737,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 1.6677735440585078,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 1.747160449659968,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 1.6669361929255209,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 1.7055227366076806,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7621457489878543,
+        "loss": 1.710315441795689,
+        "macro_f1": 0.43251005169442847
+      },
+      "round": 1,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:39.846763Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.7945924861319114,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.8191463671168503,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.8740198333579373,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.7320560505540352,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.7717958084881046,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.7635119983413875,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.7511377732364499,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.8573332474892398,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.7521646177674842,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.7537111805255756,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7955465587044535,
+        "loss": 0.8189847073574298,
+        "macro_f1": 0.6030708035003978
+      },
+      "round": 2,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:42.867033Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.24047985954639362,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.2242949104126619,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.326956427133227,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.2791260009206186,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.2761938534514352,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.20454162090883427,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.22191219107837093,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.3423085600137711,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.20347975564049922,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.21745811615903826,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7641700404858299,
+        "loss": 0.44628069950984073,
+        "macro_f1": 0.4414462941260679
+      },
+      "round": 3,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:46.115164Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.17800652332420583,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.11773429452156534,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.20167091575013585,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.13529381519696843,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.12872718591812396,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.1363142526123081,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.1199554085427401,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.1759544247245214,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.09023869046428072,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.1461972715943141,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.77834008097166,
+        "loss": 0.4190563557119022,
+        "macro_f1": 0.5002667590507535
+      },
+      "round": 4,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:49.435266Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.09195430516796624,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.09987003462655204,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.24429081313940415,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.050981413793024115,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.12184857769043685,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.052355378970370466,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.08746422742094312,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.08039414507437902,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.08772617003579777,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.11067009212115707,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7722672064777328,
+        "loss": 0.3738848265366033,
+        "macro_f1": 0.4758249920418774
+      },
+      "round": 5,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:52.592632Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.09658503587413954,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.03557165558544957,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.07441060805177115,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.14735405566537474,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.050995719680098986,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.023820459923938216,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.07269663482296224,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.103569673594222,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.03690160902613026,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.1424734697770734,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7641700404858299,
+        "loss": 0.38225199432990814,
+        "macro_f1": 0.4414462941260679
+      },
+      "round": 6,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:55.645919Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.022552415770238945,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.08256771470971254,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.03847907778010311,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.01667732658510016,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.055240962003646456,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.01717128680281391,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.06371812265822474,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.06938266890594758,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.022315231826537708,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.0981993137911678,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7661943319838057,
+        "loss": 0.3865088103753835,
+        "macro_f1": 0.4502424465786488
+      },
+      "round": 7,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:32:58.398510Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.008974492306127244,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.06020179670684191,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.08446176014391772,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.0335627683240363,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.08737710586395196,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.033055920072079074,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0371254705044688,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.13976715414010615,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.08190703952289004,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.02478044307139991,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7692307692307693,
+        "loss": 0.3686916876418388,
+        "macro_f1": 0.46318167519803255
+      },
+      "round": 8,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:01.590464Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.033327118831142886,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.07019954506231814,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.03175147671297372,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.009288534681554737,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.046550291986916396,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.02367005856828535,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.03016496138761238,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.065998123067779,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.05563547427025367,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.0279778403160874,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7641700404858299,
+        "loss": 0.38790927531748165,
+        "macro_f1": 0.4414462941260679
+      },
+      "round": 9,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:02.711845Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.024272663723489882,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.041113554792744776,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.045178082818726456,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.006082247092945897,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.05325757356067737,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.014486488132472972,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.01540451910660355,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.06409476787210946,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.08007381563111553,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.04121725751782511,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7732793522267206,
+        "loss": 0.3529675672894065,
+        "macro_f1": 0.47997556276140796
+      },
+      "round": 10,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:05.789898Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.01678958130162834,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.029615584587944405,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.06415729871670525,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.018233145073818877,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.03539170410309198,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.007188942315946573,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.006154821054743869,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.05131113737462515,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.056993721683663644,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.052313881051852716,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7692307692307693,
+        "loss": 0.3630561056407357,
+        "macro_f1": 0.46318167519803255
+      },
+      "round": 11,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:08.590881Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.012890678736947943,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.004153040901054533,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.07233201963714807,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.013794986836384894,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.13210970870720926,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.0009615890344087101,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.014133250511878607,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.03754860277186675,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.013970723933004957,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.025122106867317744,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7661943319838057,
+        "loss": 0.5108159563319403,
+        "macro_f1": 0.4502424465786488
+      },
+      "round": 12,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:11.673554Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.01889297276057128,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.028168676739525316,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.032088053875030526,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.03862592995746105,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.04491466393147282,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.017880439315948602,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0034476501353997357,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.08481596535778638,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.05842354266324968,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.11746609038327654,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7732793522267206,
+        "loss": 0.3524242818114246,
+        "macro_f1": 0.47997556276140796
+      },
+      "round": 13,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:14.831893Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.02771435603403051,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.015324648743381306,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.07406271348527846,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.00048296279322051653,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.01347541383034997,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.0005838281628144467,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0019114021837891896,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.05171957059078906,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.1001617874964837,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.02431833772517448,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7621457489878543,
+        "loss": 0.4977487108485419,
+        "macro_f1": 0.43251005169442847
+      },
+      "round": 14,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:17.818237Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.004822050908948159,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.07344117437783933,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.0298369656439663,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.01391242390615851,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.03339992364813618,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.00899652610022483,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0005406421649017922,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.09450643362564383,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.0004543570592388965,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.06601644180487337,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7631578947368421,
+        "loss": 0.4077779638622454,
+        "macro_f1": 0.43699590882524836
+      },
+      "round": 15,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:21.094725Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.003115746925308388,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.040693282041394586,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.09436951067792364,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.0007896819275686532,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.02198250322490468,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.031027931692932942,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0007187413701808974,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.024241219992266902,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.00027390217956698196,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.02228141704083148,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7621457489878543,
+        "loss": 0.5140945033023232,
+        "macro_f1": 0.43251005169442847
+      },
+      "round": 16,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:23.986852Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.022857278260229583,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.05566096298624666,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.013279818549628807,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.010720663210516315,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.019466923085063204,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.04053625101754879,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.000538884497090832,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.06656077585901213,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.03571052235179016,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.0355256354604928,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7621457489878543,
+        "loss": 0.5568081319090809,
+        "macro_f1": 0.43251005169442847
+      },
+      "round": 17,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:26.862257Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.009027883906586208,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.09766067034851199,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.05125486490412066,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 5.117932944519603e-05,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.017193840339263355,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.0010809735476726382,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.04807026983614136,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.1495621471878994,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.05326292471423714,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.09657331143697016,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8228744939271255,
+        "loss": 0.2934829657859648,
+        "macro_f1": 0.6513374807166841
+      },
+      "round": 18,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:29.853880Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.009485813585294007,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.00013640052272180305,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.19145565177364826,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.054562181235061555,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.019630884610527113,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.004600543192571125,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.0018643260851789892,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.06598030706904043,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.03415596455438283,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.09793415311795754,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.7995951417004049,
+        "loss": 0.3395413425769883,
+        "macro_f1": 0.5779308202154101
+      },
+      "round": 19,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:31.002301Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.13424623827068274,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.03868881869640267,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.03489407544299197,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.0013878231203113866,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.00012922528669039574,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.005421453896601725,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.03809826347438057,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.03055568857178799,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.03696193513927952,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.06455656313428891,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8168016194331984,
+        "loss": 0.3054515166803893,
+        "macro_f1": 0.633205686472783
+      },
+      "round": 20,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:33.862909Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.010862074169102481,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.0768542395425932,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.07341487779204364,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 0.01612655533050044,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.02657449209173971,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.007310359299279774,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 6.082133674068728e-05,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.0425115874726434,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.01871971432555306,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.030946716076527495,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8603238866396761,
+        "loss": 0.2378170963241021,
+        "macro_f1": 0.751391249170356
+      },
+      "round": 21,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:36.382566Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.0015307430963624638,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.0007471223146555475,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.022968729777056135,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 1.3977584792768553e-05,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 1.9276537067045516e-05,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.0030612719229107903,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 2.0613269466872336e-05,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.05491996877491881,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.010836687102792486,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.029193824911912025,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8289473684210527,
+        "loss": 0.2911570390709016,
+        "macro_f1": 0.6688213417960034
+      },
+      "round": 22,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:39.035393Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 4.722457857045225e-06,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.017992123995003457,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.014431249598288034,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 5.0450545833567545e-06,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 8.422770395050442e-06,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 9.556437809452052e-06,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 0.018964693022343805,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.04429398517794795,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 3.5293861387119222e-06,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.03677053907868593,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8704453441295547,
+        "loss": 0.2245827377566442,
+        "macro_f1": 0.7736978104175167
+      },
+      "round": 23,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:42.070465Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 2.4363506227618887e-06,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.0007925631747787761,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.012402166769136356,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 7.293735496376918e-06,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.03026312210770446,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.010754734805077512,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 2.7962163548348757e-06,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.20254365235939834,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.021655163607346633,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.026446167832482506,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8674089068825911,
+        "loss": 0.22486835742286343,
+        "macro_f1": 0.7678567264835392
+      },
+      "round": 24,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:44.785024Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 5.349041345543078e-06,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 3.4330673682289873e-06,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.02057970030537008,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 8.668084235058076e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.02266478134873974,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.04115127839524018,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 2.6007867151691948e-06,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.06224267083142088,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.015819144608410465,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.03372675726557707,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8593117408906883,
+        "loss": 0.24221644613906923,
+        "macro_f1": 0.747780971358782
+      },
+      "round": 25,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:47.481672Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 5.284286408397129e-07,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 7.637641926651537e-06,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.1666997595884187,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 4.3864319350875774e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 0.009128661662484813,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.0003394359688937033,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 1.5801005528656992e-06,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.10017959297803324,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 5.038263462284438e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.04059730203643359,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.9261133603238867,
+        "loss": 0.14896505178227598,
+        "macro_f1": 0.8862252117384082
+      },
+      "round": 26,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:50.040102Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 3.5061315016593013e-07,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 0.00027136934945724996,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.000193764256119188,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 2.4990241421275684e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 1.3998118365947345e-06,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 2.2151837271485013e-07,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 3.1848030108467726e-07,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.09754004203017516,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 0.03559752588254725,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.022696702753350263,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.9412955465587044,
+        "loss": 0.12449037111722507,
+        "macro_f1": 0.9129182065745964
+      },
+      "round": 27,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:52.838492Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 3.9721643401883493e-07,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 2.489522879173188e-05,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 5.391311907066572e-05,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 1.326913843334432e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 1.4819701558692e-07,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 0.03125801423430961,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 8.485827241591263e-05,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.18759215356457642,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 1.8455862898490093e-07,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.014207295454795661,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.9534412955465587,
+        "loss": 0.11804945748827235,
+        "macro_f1": 0.9333978135349805
+      },
+      "round": 28,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:55.578201Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 6.172062641833841e-08,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 2.2271933746697887e-07,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.06958077018417926,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 5.7375673206392576e-08,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 7.989727268918157e-08,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 7.04634825079421e-08,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 6.96229615384106e-08,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.025928567586304296,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 7.268105972886541e-08,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 4.414688183684263e-05,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.937246963562753,
+        "loss": 0.12822469139871326,
+        "macro_f1": 0.9052744221145936
+      },
+      "round": 29,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:33:58.208358Z",
+      "v": 1
+    },
+    {
+      "clients": [
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 0,
+          "fidelity": 0.0,
+          "loss": 0.0028412444596247173,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 1,
+          "fidelity": 0.0,
+          "loss": 2.7968721253156955e-05,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 2,
+          "fidelity": 0.0,
+          "loss": 0.13231170245651494,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 3,
+          "fidelity": 0.0,
+          "loss": 2.8083967291685776e-08,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 4,
+          "fidelity": 0.0,
+          "loss": 3.5276203377128e-08,
+          "n_samples": 458
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 5,
+          "fidelity": 0.0,
+          "loss": 2.53051871358833e-08,
+          "n_samples": 447
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 6,
+          "fidelity": 0.0,
+          "loss": 4.4278975841925045e-08,
+          "n_samples": 490
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 7,
+          "fidelity": 0.0,
+          "loss": 0.07103776840114749,
+          "n_samples": 415
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 8,
+          "fidelity": 0.0,
+          "loss": 4.816662310997172e-08,
+          "n_samples": 508
+        },
+        {
+          "accepted": true,
+          "attack": null,
+          "cid": 9,
+          "fidelity": 0.0,
+          "loss": 0.02673916732161415,
+          "n_samples": 458
+        }
+      ],
+      "consensus": {
+        "latency_ms": 0.0,
+        "n_messages": 0,
+        "rejected": []
+      },
+      "energy": {
+        "ratio": 0.0,
+        "synops": 0.0
+      },
+      "global": {
+        "acc": 0.8997975708502024,
+        "loss": 0.19088060556635683,
+        "macro_f1": 0.8364126244524761
+      },
+      "round": 30,
+      "run_id": "fedavg-seed1",
+      "ts": "2026-07-29T06:34:00.574325Z",
+      "v": 1
+    }
+  ],
+  "seed": 1
+}

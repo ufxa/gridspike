@@ -1,0 +1,166 @@
+% ===========================================================================
+% titlepage.tex -- SEPARATE, NON-ANONYMIZED title page.
+%
+% EAAI uses double-anonymized peer review: author names, affiliations, the
+% CRediT statement, funding and competing interests go HERE, and must NOT
+% appear anywhere in main.tex.
+%
+% Build on its own:  latexmk -pdf titlepage.tex
+% ===========================================================================
+\documentclass[preprint,11pt]{elsarticle}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks]{hyperref}
+
+\input{macros}
+
+\journal{Engineering Applications of Artificial Intelligence}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{\sysname: Byzantine-robust federated learning for edge event
+classification in IEC 61850 substations}
+
+% ---------------------------------------------------------------------------
+% AUTHOR BLOCK -- REPLACE EVERY PLACEHOLDER BEFORE SUBMISSION.
+% elsarticle writes these macros to the .aux file, so they must stay
+% expandable: plain text placeholders here, not \TODOnum (which is not
+% write-safe). Every placeholder is in CAPITALS and bracketed so a search for
+% "[[" finds all of them.
+% Mark the corresponding author with \corref and give a contact e-mail.
+% ---------------------------------------------------------------------------
+\author[aff1]{[[GIVEN NAME FAMILY NAME]]\corref{cor1}}
+\ead{[[CORRESPONDING AUTHOR EMAIL]]}
+\cortext[cor1]{Corresponding author.}
+
+\author[aff1]{[[CO-AUTHOR NAME]]}
+
+\affiliation[aff1]{organization={[[ORGANIZATION]]},
+                   addressline={[[ADDRESS LINE]]},
+                   city={[[CITY]]},
+                   postcode={[[POSTCODE]]},
+                   country={[[COUNTRY]]}}
+
+\begin{abstract}
+Distribution substations instrumented to IEC 61850 produce streams
+classifiable at the edge, but utilities cannot pool the data and the edge is
+energy-constrained and adversarially exposed. We present \sysname, a federated
+learning framework and an open benchmark generator: a quasi-static OpenDSS
+simulation of five feeders with synthetic event overlays, non-IID by feeder
+identity and Dirichlet label skew. Three
+classifiers---convolutional--recurrent, spiking and selective state-space
+(Mamba)---are learned over ten substations behind a three-stage
+Byzantine-admission pipeline: scale-free fidelity scoring, simulated PBFT
+agreement and robust aggregation, hash-chained per round. Across an expanded
+battery of $6{,}830$ run records the models trace an
+accuracy--energy--latency trade-off. Under a leakage-controlled chronological
+split the two dense models tie at the top (\macroF{} $0.596$ reference,
+$0.590$ state-space; paired $p=0.56$), and the spiking model---at $0.7\%$ of
+the reference's per-inference
+energy---collapses to $0.13$; the higher $0.77/0.60/0.16$ is a random-split
+ceiling inflated by window leakage, and the state-space lead it shows resolves
+to the tie. The reference's \mbox{p99}
+inference ($3.3$\,ms on GPU) would consume $82\%$ of a co-resident $4$\,ms GOOSE
+fast-message window; the other two exceed it. Under a defense-aware adversary
+the pipeline beats neither plain averaging nor robust aggregation alone: it buys
+auditability, not accuracy; usable local differential privacy is incompatible
+with admission. Sweeping that adversary's in-cone magnitude $10\times$ breaks
+plain averaging, not the geometric median; at the endpoints honest rejection
+falls from $0.80$ to $0.47$ while attacker admission does not fall. Batteries
+regenerate from the committed manifests; per-run configuration hashes verify
+canonically for $67\%$ of the original battery's records.
+\end{abstract}
+
+\begin{keyword}
+Federated learning \sep State-space models \sep Spiking neural networks \sep
+Byzantine robustness \sep IEC 61850 \sep Power distribution \sep
+Differential privacy
+\end{keyword}
+
+\end{frontmatter}
+
+\section*{Highlights}
+
+\begin{itemize}\setlength{\itemsep}{2pt}
+\item Two dense model families tie on accuracy inside a three-way edge trade-off
+\item A quasi-static OpenDSS generator makes the federation non-IID by construction
+\item A high-magnitude in-cone attacker breaks plain averaging, not the geometric median
+\item Under a defense-aware attacker, agreement buys auditability, not model accuracy
+\item Usable local differential privacy is incompatible with the Byzantine admission gate
+\end{itemize}
+
+\section*{CRediT authorship contribution statement}
+
+The CRediT taxonomy defines fourteen roles; list each author once, with every
+role that applies, and delete the roles that do not. The corresponding author is
+responsible for ensuring that this statement is accurate and agreed by all
+authors.
+
+\medskip
+\noindent
+\textbf{\TODOnum{author 1 name}}: Conceptualization, Methodology, Software,
+Validation, Formal analysis, Investigation, Data curation, Writing -- original
+draft, Writing -- review \& editing, Visualization, Supervision, Project
+administration, Funding acquisition.
+
+\medskip
+\noindent
+\textbf{\TODOnum{author 2 name}}: \TODOnum{CRediT roles for this author}.
+
+\medskip
+\noindent
+\textbf{\TODOnum{author n name}}: \TODOnum{CRediT roles for this author}.
+
+\section*{Declaration of competing interest}
+
+The authors declare the following financial interests / personal relationships
+which may be considered as potential competing interests:
+\TODOnum{competing interests, or ``none''}.
+
+\medskip
+\noindent
+If there are none, the statement reads: \emph{The authors declare that they have
+no known competing financial interests or personal relationships that could have
+appeared to influence the work reported in this paper.}
+
+\section*{Funding}
+
+This work was supported by \TODOnum{funder name, grant number}. If the research
+did not receive any specific grant from funding agencies in the public,
+commercial, or not-for-profit sectors, state that here instead.
+
+\section*{Data and code availability}
+
+All data behind the primary results are generated by the released
+physics-based simulation.
+One third-party dataset is used, for the real-trace sanity check only: the
+publicly available MSU/ORNL power-system attack and disturbance dataset, used
+unmodified under its published terms. The complete framework -- simulation,
+models, federated engine, attack
+suite, consensus pipeline, experiment runner, analysis code, tests and live
+console -- is released open source, with an archived release carrying a
+persistent identifier. During review the artifact is provided through an
+anonymized link; the de-anonymized repository and archive identifiers are
+\TODOnum{repository URL} and \TODOnum{archive DOI}. The software package retains
+its development name \texttt{fedgrid} in the repository and import paths; the
+system is named \sysname{} in the manuscript.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+
+During the preparation of this work, the author(s) used
+\TODOnum{name of tool / service} in order to
+\TODOnum{reason: e.g.\ draft and edit sections of the manuscript}. After using
+this tool/service, the author(s) reviewed and edited the content as needed and
+take(s) full responsibility for the content of the published article.
+
+\medskip
+\noindent
+Use of artificial intelligence within the research methodology itself is
+disclosed in the Methods section of the manuscript, not in this statement.
+
+\end{document}

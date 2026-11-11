@@ -1,0 +1,52 @@
+% ---------------------------------------------------------------------------
+% macros.tex -- shared macros for the manuscript.
+%
+% The cardinal rule of this project: NO FABRICATED NUMBERS. Every numeric result
+% must come from a generated file. Until the experiment battery lands, every
+% place where a number belongs carries \TODOnum{...}, which typesets a loud red
+% marker that cannot be mistaken for a value in a compiled PDF.
+% ---------------------------------------------------------------------------
+
+% \TODOnum{label} -- a results-shaped hole. The argument is a short tag naming
+% what belongs there, so the battery-to-manuscript wiring is unambiguous.
+% \TODOnum{} (empty argument) is the bare marker.
+\newcommand{\TODOnum}[1]{%
+  \textcolor[rgb]{0.85,0.0,0.0}{\textbf{[\,??\,\ifx\relax#1\relax\else\,\textsf{\footnotesize #1}\,\fi]}}%
+}
+
+% \TODOfig{filename}{what the figure will show} -- a placeholder frame for a
+% figure that only the battery can produce. Never an \includegraphics of a
+% missing file, so the document always compiles and the hole is loud.
+\newcommand{\TODOfig}[2]{%
+  \begingroup
+  \setlength{\fboxrule}{1.2pt}%
+  \setlength{\fboxsep}{10pt}%
+  \textcolor[rgb]{0.85,0.0,0.0}{%
+    \fbox{\parbox[c][7.5\baselineskip][c]{0.86\linewidth}{\centering
+      \textbf{FIGURE PENDING}\\[4pt]
+      \texttt{figures/#1}\\[6pt]
+      \normalfont\itshape #2}}}%
+  \endgroup
+}
+
+% Short-hand for the system name, so a rename is a one-line edit.
+\newcommand{\sysname}{GridSpike}
+
+% Units / symbols used repeatedly.
+\newcommand{\uJ}{\ensuremath{\mu\mathrm{J}}}
+\newcommand{\pJ}{\ensuremath{\mathrm{pJ}}}
+\newcommand{\ms}{\ensuremath{\mathrm{ms}}}
+\newcommand{\macroF}{macro-F\textsubscript{1}}
+\newcommand{\SynOps}{SynOps}
+
+% Event-class names, typeset consistently.
+\newcommand{\cls}[1]{\textsc{\small #1}}
+
+% Table template shared by every table (generated and hand-written):
+% tabularx at \linewidth, \scriptsize, \arraystretch 1.15, booktabs rules,
+% caption above, notes in \tablenota below the rule.
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+% Y{r}: ragged X column at r times the average X width (ratios sum to the X count).
+\newcolumntype{Y}[1]{>{\raggedright\arraybackslash\hsize=#1\hsize}X}
+\newcommand{\tablenota}[1]{\par\smallskip\begin{minipage}{\linewidth}\scriptsize #1\end{minipage}}

@@ -1,0 +1,95 @@
+\section*{Data availability}
+\addcontentsline{toc}{section}{Data availability}
+
+All data behind the paper's primary results are \emph{generated} by the
+quasi-static OpenDSS simulation with synthetic event and measurement
+overlays described in Section~\ref{sec:testbed}, released as part of the
+software artifact together with the unmodified public test-feeder models
+it consumes \cite{kersting2001} (BSD-3-Clause licence). One third-party
+dataset is used, and only for the real-trace sanity check of
+Section~\ref{sec:res-real}: the public MSU/ORNL power-system attack and
+disturbance dataset, used unmodified under its published terms; it
+supports no model or defense comparison in this paper. The federations
+behind every reported synthetic result are reproducible from source with
+a fixed seed:
+
+\begin{quote}\scriptsize\ttfamily\raggedright
+python -m experiments.stage\_data --out data\_battery\\
+python -m experiments.run\_all --dry-run\\
+python -m experiments.gen\_temporal\_battery\\
+python -m experiments.gen\_magnitude\_sweep\\
+python -m experiments.manifest\_tau\\
+python -m experiments.gen\_gap\_x3\\
+python -m experiments.run\_all --data-dir data\_battery\\
+\mbox{}\quad --out-dir runs --device cuda\\
+python -m experiments.report --runs-dir runs\_snn\_fixed runs\\
+\mbox{}\quad runs\_x3 runs\_ssm\_x3 runs\_gap\_x3\\
+\mbox{}\quad --tables-dir paper/tables --summary runs/summary.json
+\end{quote}
+
+The first regenerates the labelled per-substation windows; the second
+enumerates every pre-registered run with its configuration hash; the next
+four re-emit the post-registration batteries as committed manifests (the
+chronological split, the magnitude, threshold and X3 gap sweeps; the
+remaining X3 manifests ship committed like the rest), all regenerating
+canonically; the last two execute the battery and rebuild the merged
+corpus, the tables and the statistical battery, deduplicating first by
+\texttt{run\_id} and then on a semantic configuration key. The generator,
+the generated federations, all per-run result records, the run manifest
+and the figure and table scripts are deposited in the public archive
+identified below, so that the tables and figures of
+Section~\ref{sec:results} can be rebuilt without re-running the battery.
+
+\section*{Code availability}
+\addcontentsline{toc}{section}{Code availability}
+
+The complete framework -- simulation, models, federated engine, attack
+suite, consensus pipeline, experiment runner, analysis code, tests and
+live console -- is open source. \emph{During double-anonymized review} it
+is available through an anonymized repository link supplied with the
+submission; on acceptance the public repository and an archived release
+with a persistent identifier are de-anonymized and cited here. The
+package keeps its development name (\texttt{fedgrid}) in the repository;
+the system is named \sysname{} in this manuscript because that name is
+already in use for an unrelated published system.
+
+\section*{Declaration of competing interest}
+\addcontentsline{toc}{section}{Declaration of competing interest}
+
+\TODOnum{competing-interest statement: authors to confirm on the title page}
+The authors declare that they have no known competing financial interests or
+personal relationships that could have appeared to influence the work reported
+in this paper. (The definitive statement, with author names, is on the separate
+title page.)
+
+\section*{Funding}
+\addcontentsline{toc}{section}{Funding}
+
+\TODOnum{funding sources: authors to confirm on the title page}
+The definitive funding statement, including grant numbers where applicable, is
+on the separate title page. If the work received no specific grant from funding
+agencies in the public, commercial or not-for-profit sectors, that is stated
+there.
+
+\section*{CRediT authorship contribution statement}
+\addcontentsline{toc}{section}{CRediT authorship contribution statement}
+
+Author contributions are recorded using the CRediT taxonomy on the separate,
+non-anonymized title page, as required by the double-anonymized review model.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+\addcontentsline{toc}{section}{Declaration of generative AI and AI-assisted technologies}
+
+During the preparation of this work, the author(s) used
+\TODOnum{name of tool / service} in order to
+\TODOnum{reason: e.g.\ draft and edit sections of the manuscript}. After using
+this tool/service, the author(s) reviewed and edited the content as needed and
+take(s) full responsibility for the content of the published article.
+
+\medskip
+\noindent\emph{Note.} Use of artificial intelligence \emph{within the research
+methodology itself} is disclosed separately in
+Section~\ref{sec:ai-methodology}, in accordance with the publisher's policy that
+methodological AI use belongs in the Methods rather than in this statement. No
+AI system is listed as an author, and no AI-generated image is presented as
+primary research data.

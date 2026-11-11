@@ -1,0 +1,107 @@
+\section{Limitations and conclusion}
+\label{sec:limitations}
+
+We list limitations at the granularity at which they could change a
+conclusion; each is a thing a reader should know before citing a number
+from this paper.
+
+\subsection{Limitations}
+\label{sec:limitations-list}
+
+\paragraph{Energy is an estimate, not a measurement}
+SynOps accounting prices counted synaptic events and analytic
+multiply--accumulate counts at published 45\,nm constants
+\cite{horowitz2014} -- arithmetic only, excluding memory access, data
+movement and peripherals, which on many accelerators dominate; the dense
+reference is analytic too, and no power was measured on any device.
+
+\paragraph{The consensus overhead is a lower bound, and the ledger is
+not persisted}
+The primary is always honest, so no view change occurs; message
+authentication, batching, checkpointing and garbage collection are not
+priced; the wide-area latency distribution is fitted-synthetic
+\cite{aikat2003}; and validators are simulated processes
+in one host. There is one in-memory chain, not one replica per
+validator, and no \texttt{RunResult} field persists it -- chain
+integrity is covered by property tests, not by these runs.
+
+\paragraph{Simulated data, not field data}
+Every synthetic window comes from a physics simulator; the
+fitted-synthetic rows are named in the realism audit
+(Tables~\ref{tab:realism}--\ref{tab:realism2b}). The 60\,s quasi-static
+cadence is the largest single simplification -- sub-minute clearing
+sequences are unobservable, so episodes represent what one-minute RMS
+telemetry captures, not point-on-wave behaviour. No protection equipment
+is modelled: faults persist for their full drawn duration, so fault
+windows are more observable than in the field and fault-class accuracies
+are optimistic. Absolute \macroF{} values outside the
+chronological-split tables are likewise optimistic ceilings -- the
+sweeps, ablations and local-DP grid were not re-run under the controlled
+protocol. The $f_{\mathrm{dev}}$ channel is synthetic and event-coupled
+-- a possible label shortcut, bounded by the probe ablation of
+Section~\ref{sec:res-frame} on a shallow model only. Fault location is
+bus-granular, photovoltaic modelling simplified, windows do not cross
+day boundaries, the class prior is a modelling choice, and one solver
+produced every window.
+
+\paragraph{Scope of the battery}
+Seeds are fifteen at Tier~1 and the temporal controls, nine elsewhere,
+and the extension mixes two execution environments -- bounded by a
+homogeneous-subset analysis and fixed by dated amendment. The client
+count is fixed at ten; the heterogeneity control is near-uniform, not
+uniform; hyperparameters were tuned once on clean FedAvg and frozen, so
+the spiking collapse is a collapse \emph{at this optimization budget} --
+a per-architecture search remains a live alternative explanation; no
+model was quantized; the temporal and magnitude batteries are
+post-registration controls; and root-dataset trust bootstrapping
+\cite{cao2021fltrust} is excluded by assumption, cited not re-run.
+
+\paragraph{Threat model}
+Label-flip is dynamic per-batch noise, a weaker, higher-variance
+adversary than static poisoning. The adaptive attacker is defense-aware
+but not omniscient and never observes $\tau$, so the H3b null does not
+separate an under-powered attacker from a working defense; the cone
+angle $\varsigma$ is never swept, so measured evasion is a lower bound;
+it wastes its first round by construction; adversary placement is
+structured and static; a single non-finite submission can deny the
+defense for a round -- an open vulnerability we name rather than
+measure; Krum's $n \ge 2f+3$ guarantee is void behind a tight gate; and
+the attacker blinds itself on a fail-closed round.
+
+\paragraph{Reproducibility and per-class rarity}
+Bit-reproducibility is claimed on CPU only; per-run git provenance is
+mostly absent, so regeneration rests on manifests, configuration hashes
+($66.7\%$ re-verifying canonically on the original battery) and seeded
+determinism (Section~\ref{sec:sup-provenance}). The rarest fault class
+has single-digit support in some splits, so its recall is unstable and
+reported rather than smoothed -- detecting it reliably needs a different
+sampling design.
+
+\subsection{Conclusion}
+\label{sec:conclusion}
+
+\sysname{} treats the four constraints of federated substation event
+classification -- data that cannot be pooled, physical heterogeneity, an
+energy- and latency-bounded edge, and a federation with no trusted party
+-- as one design problem, and stress-tests it end to end rather than
+claiming it robust. The programme was pre-registered and reported
+against its own decision rules, and several rules returned negative --
+which is the point of pre-registering them. On the leakage-controlled
+chronological split the two dense architectures tie at the top
+(\macroF{} $0.596$/$0.590$); the spiking model, two orders of magnitude
+cheaper in estimated energy, is on the floor federated \emph{and}
+centralized -- it does not learn this task at this budget. The admission
+pipeline, ablated against the robust aggregator standing alone, buys an
+auditable, jointly witnessed decision rather than accuracy; local DP and
+cosine admission are incompatible at every usable privacy level;
+heterogeneity leaves the state-space model unmoved across the whole
+swept skew; the consensus layer's cost is a lower bound next to the
+accuracy it does not buy; and the auditability it does buy is a design
+property, not a measurement. Three directions follow: move the energy
+claim from analytic accounting to event-driven hardware; add a norm
+bound -- or a statistic not estimable from public information -- to any
+deployed cosine gate, since magnitude is the lever that breaks plain
+averaging while the geometric median absorbs it untouched; and release
+the generator's federations at SMART-DS scale \cite{smartds}, so
+federated grid learning can be compared on a common, physically grounded
+substrate.

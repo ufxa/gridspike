@@ -1,0 +1,110 @@
+{
+  "centralized|cnn_lstm": {
+    "macro_f1_mean": 0.41857331913750384,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.7101593625498008,
+    "n": 1
+  },
+  "centralized|snn": {
+    "macro_f1_mean": 1.0,
+    "macro_f1_std": 0.0,
+    "acc_mean": 1.0,
+    "n": 2
+  },
+  "centralized|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "local|cnn_lstm": {
+    "macro_f1_mean": 0.5106625761156901,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.749203187250996,
+    "n": 1
+  },
+  "local|snn": {
+    "macro_f1_mean": 0.9392786088532838,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.9520916334661355,
+    "n": 1
+  },
+  "local|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "fedavg|cnn_lstm": {
+    "macro_f1_mean": 0.42581455865910733,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.7121513944223108,
+    "n": 1
+  },
+  "fedavg|snn": {
+    "macro_f1_mean": 0.9963744696217387,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.9970119521912351,
+    "n": 1
+  },
+  "fedavg|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "fedprox|cnn_lstm": {
+    "macro_f1_mean": 0.5510770573548244,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.750996015936255,
+    "n": 1
+  },
+  "fedprox|snn": {
+    "macro_f1_mean": 0.9951708480837309,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.9960159362549801,
+    "n": 1
+  },
+  "fedprox|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "pipeline_krum|cnn_lstm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "pipeline_krum|snn": {
+    "macro_f1_mean": 0.9636034076490847,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.9691235059760956,
+    "n": 1
+  },
+  "pipeline_krum|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  },
+  "pipeline_geomed|cnn_lstm": {
+    "macro_f1_mean": 0.5245925316513552,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.7420318725099602,
+    "n": 1
+  },
+  "pipeline_geomed|snn": {
+    "macro_f1_mean": 0.9892312551022233,
+    "macro_f1_std": 0.0,
+    "acc_mean": 0.9910358565737052,
+    "n": 1
+  },
+  "pipeline_geomed|ssm": {
+    "macro_f1_mean": null,
+    "macro_f1_std": null,
+    "acc_mean": null,
+    "n": 0
+  }
+}

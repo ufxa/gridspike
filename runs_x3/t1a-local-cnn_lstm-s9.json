@@ -1,0 +1,115 @@
+{
+  "config": {
+    "engine": {
+      "rounds": 30,
+      "strategy": "local"
+    },
+    "manifest": {
+      "arm": "local",
+      "block": "t1a",
+      "config": {
+        "attack": null,
+        "defense": null,
+        "federation": {
+          "alpha": 0.5,
+          "days": 30,
+          "iid": false,
+          "k": 10,
+          "seed": 9
+        },
+        "ldp": null,
+        "mode": "local",
+        "model": {
+          "kwargs": {},
+          "name": "cnn_lstm"
+        },
+        "precision": "fp32",
+        "seed": 9,
+        "strategy": {
+          "name": "fedavg"
+        },
+        "training": {
+          "batch_size": 64,
+          "class_weighting": "effective_num",
+          "local_epochs": 1,
+          "lr": 0.001,
+          "optimizer": "adam",
+          "rounds": 30
+        }
+      },
+      "config_hash": "31ee45a1061fc5be52b865d3c2760185922016732c577cced0e316e060ee719c",
+      "model": "cnn_lstm",
+      "run_id": "t1a-local-cnn_lstm-s9",
+      "seed": 9,
+      "tier": 1
+    }
+  },
+  "energy": null,
+  "env_fingerprint": "py3.12.14 | torch 2.9.1+cu128 | cuda 12.8 | NVIDIA GeForce RTX 5090",
+  "final": {
+    "acc": 0.6460050890585242,
+    "local_max_macro_f1": 0.35101425875514525,
+    "local_mean_macro_f1": 0.28656039271227424,
+    "local_min_macro_f1": 0.23210831053444952,
+    "local_std_macro_f1": 0.0429141776151458,
+    "macro_f1": 0.28656039271227424,
+    "per_client": [
+      {
+        "acc": 0.9106870229007633,
+        "cid": 0,
+        "macro_f1": 0.35101425875514525
+      },
+      {
+        "acc": 0.20814249363867685,
+        "cid": 1,
+        "macro_f1": 0.25493170935678583
+      },
+      {
+        "acc": 0.9091603053435114,
+        "cid": 2,
+        "macro_f1": 0.34976821356871207
+      },
+      {
+        "acc": 0.8417302798982188,
+        "cid": 3,
+        "macro_f1": 0.2948931703750257
+      },
+      {
+        "acc": 0.7104325699745547,
+        "cid": 4,
+        "macro_f1": 0.31465374720959627
+      },
+      {
+        "acc": 0.5050890585241731,
+        "cid": 5,
+        "macro_f1": 0.23479674447760296
+      },
+      {
+        "acc": 0.7834605597964377,
+        "cid": 6,
+        "macro_f1": 0.23210831053444952
+      },
+      {
+        "acc": 0.9043256997455471,
+        "cid": 7,
+        "macro_f1": 0.3179687210297518
+      },
+      {
+        "acc": 0.6587786259541984,
+        "cid": 8,
+        "macro_f1": 0.2501568361727023
+      },
+      {
+        "acc": 0.028244274809160305,
+        "cid": 9,
+        "macro_f1": 0.2653122156429709
+      }
+    ],
+    "split": "local_test"
+  },
+  "git_commit": "unknown",
+  "latency": null,
+  "method": "local",
+  "rounds": [],
+  "seed": 9
+}

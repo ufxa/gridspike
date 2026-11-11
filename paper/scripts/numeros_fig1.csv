@@ -1,0 +1,21 @@
+macro,valor,fonte,rotulo
+nFeeders,5,paper/tables/tab_dataset.tex (All row: 5 feeders),assumido
+nClients,10,paper/tables/tab_dataset.tex (clients 0-9),assumido
+nWindowsTotal,"26,100",paper/tables/tab_dataset.tex (All row),simulado
+normalShare,94.1,paper/tables/tab_dataset.tex (All row: 94.14),simulado
+nRuns,"4,851",paper/sections/06_experimental_design.tex (distinct seeded runs),declarado
+nMsgs,180,paper/tables/tab_consensus_overhead.tex (M=10 row),medido
+f1CnnChrono,0.596,paper/tables/tab_temporal_frame.tex (FedAvg CNN-LSTM temporal); recomputed from runs/ + runs_gap_x3/ (15 seeds),medido
+f1SsmChrono,0.590,paper/tables/tab_temporal_frame.tex (FedAvg Mamba temporal); recomputed (15 seeds),medido
+f1SnnChrono,0.128,paper/tables/tab_temporal_frame.tex (FedAvg Spiking temporal); recomputed (15 seeds),medido
+energyPct,0.7,paper/tables/tab_energy.tex (rho = 6.81e-3 delta fp32),estimado
+geoAloneAdaptive,0.565,paper/tables/tab_temporal_attack.tex (Geo-median alone / CNN-LSTM / Adaptive),medido
+pipeGeoAdaptive,0.373,paper/tables/tab_temporal_attack.tex (Pipeline + geo-median / CNN-LSTM / Adaptive),medido
+ldpTauMax,0.7,paper/tables/tab_ldp_curve.tex (honest FRR 1.000 for all tau <= 0.7),medido
+p99Gpu,3.28,paper/tables/tab_latency.tex (CNN-LSTM GPU p99 3.280 ms),medido
+p99Share,82,paper/tables/tab_latency.tex (82.0 %),medido
+latPbft,167.8,paper/tables/tab_consensus_overhead.tex (M=10 row: sim. p50 167.8 ms),simulado
+nValidators,10,paper/tables/tab_consensus_overhead.tex (M=10 row),assumido
+fTol,3,paper/tables/tab_consensus_overhead.tex (M=10 row: f=3),assumido
+tauRef,0.5,paper/tables/tab_tau_sweep.tex (reference threshold),assumido
+nByz,3,paper/sections/04_architecture.tex (headline f_att=3),assumido

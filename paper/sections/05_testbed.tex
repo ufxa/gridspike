@@ -1,0 +1,84 @@
+\section{Benchmark: physics, realism and federation construction}
+\label{sec:testbed}
+
+No public dataset provides per-substation labelled fault and disturbance
+waveforms suitable for a $K$-client federation; that gap is why the
+benchmark generator exists. Rather than assert realism, every generator
+parameter carries a verifiable source -- a normative standard, a public
+dataset, or a peer-reviewed paper -- and is labelled by the \emph{kind}
+of evidence behind it (\emph{measured-data}, \emph{standard},
+\emph{fitted-synthetic}, \emph{modeling-choice}); the complete audit,
+parameter by parameter, is Tables~\ref{tab:realism}--\ref{tab:realism2b}.
+A test asserts that no row ships without a source, and
+Section~\ref{sec:limitations} prices what the fitted-synthetic rows cost.
+
+\subsection{Feeders, solver and events}
+
+Five unmodified distribution test feeders are vendored -- the IEEE 13-,
+34-, 37- and 123-bus feeders and the IEEE PES European Low Voltage Test
+Feeder \cite{kersting2001} -- and clients are assigned feeders
+cyclically, so feeder identity is a feature-skew axis before any label
+skew. The IEEE 37-bus feeder is an ungrounded delta system, retained
+deliberately: on it a ground fault appears as neutral displacement, not
+fault current, so \emph{the same label means a different signal shape} at
+different clients. The solver is the DSS-Extensions OpenDSS engine in
+quasi-static daily mode at a \textbf{60\,s} step, metering at the
+substation bay (feeder-head VT, first-section CT); a step that fails the
+power flow is re-solved and then \emph{holds the last valid value} -- the
+repeat-last convention of telemetry front ends -- at an aggregate held
+rate of $0.0059\%$ (Table~\ref{tab:nonconv}).
+
+Residential demand uses the CREST measured-model household profiles
+\cite{richardson2010}; rooftop PV sits on $40\%$ of load buses at
+$15\%$/$40\%$ penetration with Markov cloud transients fitted to measured
+statistics \cite{hoke2013,woyte2007,lave2013}. Events arrive at a Poisson
+rate per client-day -- line-to-ground, line-to-line, three-phase faults
+at documented resistance distributions \cite{dagenhart2000,deandrade2010},
+sags and swells targeted to land in the IEEE\,1159 bands
+\cite{ieee1159,bollen2000}, and sustained cold-load-pickup overload
+\cite{short2004} -- with episode durations of $2$--$10$ minutes.
+
+\paragraph{No protection equipment is modelled}
+The generator contains no relay, recloser, fuse or breaker: a fault stays
+energized for its whole drawn duration where a real feeder would clear it
+in cycles. Fault windows are therefore \emph{more} observable here than
+in the field, absolute fault-class accuracies are optimistic, and the
+benchmark supports the relative comparison across models and defenses,
+not a field-accuracy claim.
+
+\paragraph{The class prior is realistic, and that is the hard part}
+The generator is tuned so $\ge 90\%$ of windows are \cls{normal}; the
+realized share is $93.0$--$94.1\%$ across the battery federations
+(Table~\ref{tab:dataset}). All primary metrics are computed under this
+prior -- \macroF{} and per-class recall, never accuracy alone -- and the
+rarest class can have single-digit support in a client split, so its
+recall is unstable and reported, not smoothed.
+
+\subsection{Measurement chain and federation construction}
+
+The classifier sees instrumented telemetry, not clean solver output:
+class-0.5 CT/VT error models \cite{iec61869-2,iec61869-3}, a 16-bit ADC,
+dropout episodes at measured rates \cite{naspi2017}, and $60$\,s RMS
+gateway telemetry -- not IEC 61850-9-2 sampled values, which the
+generator does not model. System frequency is not a solver output, so
+$f_{\mathrm{dev}}$ is a stationary Ornstein--Uhlenbeck process fitted to
+measured statistics \cite{rydingorjao2020} with event-coupled dips -- a
+fitted-synthetic channel whose possible label-shortcut is audited in
+Section~\ref{sec:res-frame}.
+
+Windows are $T{=}64$ samples at stride~16 ($75\%$ overlap), $87$ per
+simulated day, $2\,610$ per client at the 30-day default. Heterogeneity
+is two-axis: feeder/load-shape identity gives feature skew and a
+Dirichlet$(\alpha)$ draw over the eight classes gives label skew
+\cite{hsu2019} ($\alpha=0.5$ reference, $\{0.1,1.0\}$ and a near-uniform
+control swept). Splits are per-client $70/15/15$, seeded, the normalizer
+fitted on the training split only. Two protocols exist and both are
+reported: the pre-registered seeded \emph{random} permutation -- under
+which the committed \texttt{experiments/measure\_leakage.py} finds
+$99.9\%$ of test windows overlapping a training window -- and the
+leakage-controlled \emph{chronological} split (contiguous blocks,
+four-window purge, $\approx 0\%$ overlap), adopted as the headline
+protocol. The consensus layer's latency is a sourced wide-area lognormal
+(median 25\,ms) \cite{aikat2003}. The same pipeline runs
+unmodified on the NREL SMART-DS systems \cite{smartds}, the declared
+scale-up path.

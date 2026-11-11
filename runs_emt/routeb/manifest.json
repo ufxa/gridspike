@@ -1,0 +1,227 @@
+{
+  "task": "emt_routeb",
+  "cadence": "cycle",
+  "f0_hz": 60.0,
+  "samples_per_cycle": 320,
+  "dt_s": 5.208333333333334e-05,
+  "window_t": 64,
+  "stride": 16,
+  "config": {
+    "out": "/workspace/repo/runs_emt/routeb",
+    "seed": 0,
+    "runs_per_class": 50,
+    "classes": "normal,fault_lg,fault_lg_hif,fault_ll,fault_llg,fault_3ph,sag,swell,overload",
+    "n_cycles": 150,
+    "workers": 8,
+    "keep_logs": "events",
+    "topology_source": "auto",
+    "train": "cnnlstm",
+    "train_epochs": 15,
+    "device": "cpu",
+    "xcheck_opendss": true,
+    "xcheck_cells": 16,
+    "selftest": false,
+    "selftest_sim": false,
+    "dry_run": false,
+    "limit": null,
+    "refresh_topology": false
+  },
+  "topology_provenance": "embedded-snapshot",
+  "classes": [
+    "normal",
+    "fault_lg",
+    "fault_lg_hif",
+    "fault_ll",
+    "fault_llg",
+    "fault_3ph",
+    "sag",
+    "swell",
+    "overload"
+  ],
+  "n_runs": 450,
+  "n_windows": 2250,
+  "label_histogram": [
+    721,
+    336,
+    177,
+    180,
+    197,
+    226,
+    210,
+    203
+  ],
+  "normal_share": 0.3204444444444444,
+  "sha256_windows": "d8d5708ce115cbbabcddea5dedbce2478d687d7e6168db45a538b7a045425e5f",
+  "elapsed_s": 179.56,
+  "budget_estimate": {
+    "n_runs": 450,
+    "sim_time_per_run_s": 2.5,
+    "steps_per_run": 48000,
+    "est_wall_per_run_s": 2.6,
+    "est_core_hours": 0.325,
+    "windows_per_run_typ": 6,
+    "note": "measured ~0.9 s wall per simulated second + ~0.35 s IO/extract overhead on a laptop i7; EMT is CPU-bound, embarrassingly parallel over runs (use --workers)."
+  },
+  "eval": {
+    "model": "cnnlstm",
+    "final": {
+      "acc": 0.8912,
+      "macro_f1": 0.903,
+      "per_class": {
+        "0": {
+          "precision": 0.7609,
+          "recall": 0.9906,
+          "f1": 0.8607,
+          "support": 106
+        },
+        "1": {
+          "precision": 0.875,
+          "recall": 0.4118,
+          "f1": 0.56,
+          "support": 51
+        },
+        "2": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 32
+        },
+        "3": {
+          "precision": 1.0,
+          "recall": 0.7692,
+          "f1": 0.8696,
+          "support": 13
+        },
+        "4": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 29
+        },
+        "5": {
+          "precision": 0.9714,
+          "recall": 1.0,
+          "f1": 0.9855,
+          "support": 34
+        },
+        "6": {
+          "precision": 1.0,
+          "recall": 0.98,
+          "f1": 0.9899,
+          "support": 50
+        },
+        "7": {
+          "precision": 1.0,
+          "recall": 0.92,
+          "f1": 0.9583,
+          "support": 25
+        }
+      },
+      "confusion": [
+        [
+          105,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          30,
+          21,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          10,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          29,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          34,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          49,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          23
+        ]
+      ],
+      "n_test": 340
+    },
+    "latency": {
+      "device": "cpu",
+      "batch": 1,
+      "p50_ms": 1.128356030676514,
+      "p95_ms": 1.1499017127789557,
+      "p99_ms": 38.286430158186704,
+      "n": 200
+    }
+  },
+  "xcheck": {
+    "n_cells": 0
+  },
+  "versions": {
+    "python": "3.12.14",
+    "dpsim": "1.4.0",
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "fedgrid": "0.1.0",
+    "torch": "2.13.0+cu130",
+    "opendssdirect.py": null,
+    "env_fingerprint": "py3.12.14 | torch 2.13.0+cu130 | cuda none | cpu",
+    "git_commit": "unknown"
+  }
+}

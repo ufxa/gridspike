@@ -1,0 +1,167 @@
+\section{Discussion}
+\label{sec:discussion}
+
+The interpretive frames in this section were fixed with the
+pre-registration, before any result existed, and are not adjusted to what
+the battery returned: where the result contradicts the registered
+expectation -- and in three places it does -- the frame is kept and the
+expectation is the thing that goes.
+
+\subsection{A three-way trade-off, not a single winner}
+
+The central picture is a trade-off, and the honest reading names the
+corner each architecture occupies -- and on the headline chronological
+split the accuracy corner is \emph{shared}, not held: the
+convolutional--recurrent reference and the selective state-space model
+tie at \macroF{} $0.596$ and $0.590$ ($p=0.56$). The state-space model
+adds the highest centralized ceiling ($0.724$) at the largest compute
+($21.1$\,\uJ{} arithmetic-only, p99 $>5\times$ the co-resident envelope).
+The reference model is the \emph{timing} choice: statistically
+indistinguishable accuracy, the only model whose p99 leaves any of that
+envelope ($82\%$, GPU only). The spiking model is the \emph{energy}
+choice: about $147\times$ cheaper by SynOps accounting, but collapsed to
+$0.128$ federated and $0.236$ centralized -- it does not learn this task
+at this budget. A deployment picks a corner; the benchmark's
+contribution is to make the corners measurable on a common substrate.
+Even that reading is complicated by the probe: the reference is not
+justified by \emph{centralized} accuracy -- only its federated arm edges
+the pooled probe.
+
+\subsection{Mechanisms: what happened, why, and what follows}
+\label{sec:mechanisms}
+
+Four findings earn their keep only if their mechanism is stated.
+
+\paragraph{The random split inflates accuracy}
+\emph{What:} every arm scored higher under the random permutation
+(the federated CNN-LSTM only within seed noise, $-0.6\%$) -- the spiking
+centralized ceiling by $60\%$ -- and the
+leakage-controlled split took it back. \emph{Why:} neighbouring windows
+share $75\%$ of their samples, so a high-capacity classifier on
+near-duplicate windows is doing lookup, not generalization.
+\emph{Implication:} quote the chronological columns; the random split is
+kept as the diagnostic showing what an uncontrolled split credits to
+leakage -- up to $0.19$ \macroF{} on the cells that had accuracy to
+inflate.
+
+\paragraph{Physical heterogeneity looks Byzantine to a direction gate}
+\emph{What:} at $\tau=0.5$ the gate rejected $66$--$98\%$ of
+\emph{honest} updates while admitting the defense-aware attacker half
+the time. \emph{Why:} the score is cosine distance to the round's
+median, and this federation is non-IID by construction -- different
+feeders, load mixes and event populations push honest updates in
+legitimately different directions, and local-DP noise makes the same
+confusion literal. \emph{Implication:} a direction-only statistic cannot
+separate the federation's own heterogeneity from malice; if a gate is
+deployed at all, calibration matters more than the statistic.
+
+\paragraph{The admission gate degrades the robust aggregator by
+starving it}
+\emph{What:} geometric-median aggregation alone holds its accuracy under
+the defense-aware attacker ($0.609$/$0.726$) while the same aggregator
+behind the gate drops to $0.420$/$0.051$. \emph{Why:} a robust average
+needs honest mass, a selector needs honest neighbours, and at
+$\tau=0.5$ the gate discards most of the honest population -- Krum's
+$n \ge 2f+3$ condition is routinely unmet; opened to $\tau=1.0$ the
+same gate costs almost nothing. \emph{Implication:} a gate in front of a
+robust aggregator must be calibrated to admit; a gate that rejects most
+of the honest population is a denial-of-service on its own federation.
+
+\paragraph{Accuracy, privacy, energy and latency pull in different
+directions}
+\emph{What:} no arm takes every axis -- the accuracy lead is shared
+between the only model that fits the timing envelope and the slowest
+model, while the cheapest per inference is the least accurate.
+\emph{Why:} the desiderata bind different resources -- capacity, sparse
+arithmetic, a compiled kernel, isotropic noise the direction gate cannot
+tell from an attack, and a jointly witnessed decision whose
+$180$-message round buys a record, not accuracy. \emph{Implication:}
+deployment chooses a corner, which is also why geometric-median-alone is
+the defensible default for the defense axis.
+
+\subsection{Energy against accuracy: what the ratio does not say}
+
+Three things must be read together. \emph{First}, parity is a premise,
+not a bonus, and it failed -- the paired $\Delta$\macroF{} interval
+$[-0.465,-0.417]$ sits far outside the $\pm0.02$ margin, so the energy
+comparison runs between models at different operating points; the
+literature had made parity look plausible \cite{mahapatra2021}, which is
+exactly why the negative result is worth reporting. \emph{Second}, the
+ratio is arithmetic-only at 45\,nm constants \cite{horowitz2014},
+excluding memory traffic -- often the dominant term. \emph{Third},
+coding moves both axes at once: temporal-contrast emits events only
+where the signal changes -- a strong prior on quasi-static telemetry --
+and is twelve times cheaper than rate coding \emph{and} the only coding
+above the trivial floor, while thresholds below $0.1$ fire on the
+instrument noise.
+
+\subsection{The defense asymmetry}
+
+The evasion half of the asymmetry is now decided rather than descriptive
+-- admission rises from $0.000$ to $0.53$--$0.87$ at
+$p_{\mathrm{Holm}} = 1.8\times10^{-4}$ in every cell -- and the damage
+half splits on the aggregator: behind Krum the admitted attack costs
+measurably more than the rejected one on two of three models, while
+behind the geometric median it runs backwards, because a robust average
+is not moved by an update it was content to admit. The conclusion is
+narrower than the hypothesis and more useful: evading a cosine gate is
+easy and, against a robust average, close to pointless \emph{at honest
+magnitude}.
+
+The magnitude lever removes that qualification. What makes a single
+cosine threshold portable -- scale-freeness -- is exactly what makes it
+blind to norm: admitted magnitude translates directly into displacement,
+and plain averaging does not survive the lever ($0.598 \rightarrow
+0.103$) while the geometric median barely registers it. The design
+recommendation therefore collapses to something simpler than the one we
+set out with: \emph{deploy the geometric median on its own} -- the only
+arm robust to the attack the gate cannot see -- and if a cosine gate is
+kept for the auditable record, it needs a norm bound, which is a
+clipping rule, not an admission rule. A second, untested direction
+follows from the attacker's aiming error: an admission statistic not
+estimable from public information alone would widen that error and
+narrow the usable cone without changing the interface.
+
+\subsection{What the agreement layer buys, and what privacy costs}
+
+Byzantine agreement is not an accuracy mechanism here; what it remains
+is a \emph{governance} mechanism -- it makes the admission decision
+jointly witnessed rather than a server's private choice, and appends a
+hash-chained record, which in a federation of competing utilities is
+what a regulator or contractual counterparty asks for. The guarantee is
+bounded twice over: the chain is tamper-evident but does not stop a
+writer who re-hashes every successor, and this battery builds it in
+memory and discards it, so auditability is a design claim, not a
+measurement. The cost side rides in the same breath: the overhead
+figures are a \emph{lower bound} (always-honest primary, no view change,
+no authentication).
+
+On privacy the selection procedure has no solution on this architecture,
+because the curve is a point: at every $\tau \le 0.7$ the gate rejects
+all ten clients in all thirty rounds; at $\tau \ge 0.8$ it admits the
+attacker essentially always and \macroF{} stays at or below the trivial
+floor, at near-vacuous $\varepsilon$ throughout -- consistent with the
+theory \cite{guerraoui2021podc} and an argument for the designs that
+route around the tension \cite{gu2024dpbrem}: server-side or distributed
+noise, or admission on a quantity that survives isotropic perturbation.
+
+\subsection{Implications for a utility consortium}
+
+Read together, the frames suggest a deployment shape rather than a
+product. Federation is worth it: every federated arm beats its
+local-only floor under both protocols. Robust aggregation should be
+\emph{selected} rather than composed -- geometric-median-alone was the
+best-ranked defense arm and every layer on top cost accuracy; if an
+admission gate is deployed anyway, for auditability, it must be
+calibrated to admit. Agreement should be justified on governance, with
+its chain actually persisted and verified, which this battery did not
+do. Update-level privacy should not be composed with cosine admission on
+architectures of this size. And one recommendation reverses on the
+evidence: heterogeneity was expected to be the binding constraint, but
+the state-space model does not move across the swept skew -- a
+consortium expecting severe label skew has an architectural answer
+before it has a federated-algorithm one. Whether that indifference
+survives beyond the swept range and beyond ten clients, we do not know;
+and the classifier should be chosen for the envelope of the hardware
+installed in the bay -- an argument for evaluating event-driven models
+on event-driven hardware.

@@ -1,0 +1,263 @@
+{
+  "config": {
+    "k": 10,
+    "days": 30,
+    "alpha": 1.0,
+    "seed": 2
+  },
+  "fedgrid_version": "0.1.0",
+  "engine": "DSS C-API Library version 0.14.5 revision 87d85c2622c8281b92255335bc7c09b11191b21d based on OpenDSS SVN 3723 [FPC 3.2.2] (64-bit build) MVMULT INCREMENTAL_Y CONTEXT_API PM 20240329033721",
+  "clients": [
+    {
+      "cid": 0,
+      "file": "client_00.npz",
+      "feeder": {
+        "name": "ieee13",
+        "load_shape_seed": 200006,
+        "pv_penetration": 0.15
+      },
+      "split_seed": 207925,
+      "n_windows": 2610,
+      "n_nonconverged": 0,
+      "n_steps": 43200,
+      "sha256_windows": "b96781bfee1ce2b1607ad4dcdc54df1efd42e2c6e547ca80688885fe423ed89c"
+    },
+    {
+      "cid": 1,
+      "file": "client_01.npz",
+      "feeder": {
+        "name": "ieee34",
+        "load_shape_seed": 200007,
+        "pv_penetration": 0.4
+      },
+      "split_seed": 215844,
+      "n_windows": 2610,
+      "n_nonconverged": 5,
+      "n_steps": 43200,
+      "sha256_windows": "9d009f29251693310a14c93162b1e58a9deee73f0899a0a1ec1867e820195e92"
+    },
+    {
+      "cid": 2,
+      "file": "client_02.npz",
+      "feeder": {
+        "name": "ieee37",
+        "load_shape_seed": 200008,
+        "pv_penetration": 0.15
+      },
+      "split_seed": 223763,
+      "n_windows": 2610,
+      "n_nonconverged": 0,
+      "n_steps": 43200,
+      "sha256_windows": "4828d949dd3536826aff97f31a5c54aa91e93697d7289cac8da0cba0eff46f15"
+    },
+    {
+      "cid": 3,
+      "file": "client_03.npz",
+      "feeder": {
+        "name": "ieee123",
+        "load_shape_seed": 200009,
+        "pv_penetration": 0.4
+      },
+      "split_seed": 231682,
+      "n_windows": 2610,
+      "n_nonconverged": 1,
+      "n_steps": 43200,
+      "sha256_windows": "3352070688c2e9f053cb01356ae6b2deca99e65b874eac507e8f1bd126559700"
+    },
+    {
+      "cid": 4,
+      "file": "client_04.npz",
+      "feeder": {
+        "name": "eulv",
+        "load_shape_seed": 200010,
+        "pv_penetration": 0.15
+      },
+      "split_seed": 239601,
+      "n_windows": 2610,
+      "n_nonconverged": 0,
+      "n_steps": 43200,
+      "sha256_windows": "989c251eb4cc67f4d0f6a8cae305205d4409ddf2c57256b73ace7a29d1ee465d"
+    },
+    {
+      "cid": 5,
+      "file": "client_05.npz",
+      "feeder": {
+        "name": "ieee13",
+        "load_shape_seed": 200011,
+        "pv_penetration": 0.4
+      },
+      "split_seed": 247520,
+      "n_windows": 2610,
+      "n_nonconverged": 5,
+      "n_steps": 43200,
+      "sha256_windows": "857204954f0a7b51b3432b6017e1d7f1144bda54fd1bc73e3a85c9321c555028"
+    },
+    {
+      "cid": 6,
+      "file": "client_06.npz",
+      "feeder": {
+        "name": "ieee34",
+        "load_shape_seed": 200012,
+        "pv_penetration": 0.15
+      },
+      "split_seed": 255439,
+      "n_windows": 2610,
+      "n_nonconverged": 2,
+      "n_steps": 43200,
+      "sha256_windows": "f30e8e58dc217d27090ae03c6afb5a76814c27217728be2682aaa26c4239409e"
+    },
+    {
+      "cid": 7,
+      "file": "client_07.npz",
+      "feeder": {
+        "name": "ieee37",
+        "load_shape_seed": 200013,
+        "pv_penetration": 0.4
+      },
+      "split_seed": 263358,
+      "n_windows": 2610,
+      "n_nonconverged": 7,
+      "n_steps": 43200,
+      "sha256_windows": "8fb72d273b53910bb168f087fd26101631679bfa24738fd645c32db4c7d38a23"
+    },
+    {
+      "cid": 8,
+      "file": "client_08.npz",
+      "feeder": {
+        "name": "ieee123",
+        "load_shape_seed": 200014,
+        "pv_penetration": 0.15
+      },
+      "split_seed": 271277,
+      "n_windows": 2610,
+      "n_nonconverged": 0,
+      "n_steps": 43200,
+      "sha256_windows": "c7be85a3f6cc5c2c66012c50bc96532debc07097cf3c00593a99aa5813e71b0b"
+    },
+    {
+      "cid": 9,
+      "file": "client_09.npz",
+      "feeder": {
+        "name": "eulv",
+        "load_shape_seed": 200015,
+        "pv_penetration": 0.4
+      },
+      "split_seed": 279196,
+      "n_windows": 2610,
+      "n_nonconverged": 0,
+      "n_steps": 43200,
+      "sha256_windows": "5a2074a4c63c1b9d53c0071416c0e60dec1e9bd9604c30c4863d1374f8873c38"
+    }
+  ],
+  "label_histogram": [
+    [
+      2476,
+      70,
+      12,
+      0,
+      20,
+      15,
+      17,
+      0
+    ],
+    [
+      2451,
+      4,
+      40,
+      45,
+      0,
+      0,
+      17,
+      53
+    ],
+    [
+      2468,
+      4,
+      13,
+      22,
+      0,
+      46,
+      28,
+      29
+    ],
+    [
+      2455,
+      22,
+      4,
+      13,
+      15,
+      13,
+      84,
+      4
+    ],
+    [
+      2451,
+      7,
+      13,
+      25,
+      4,
+      0,
+      73,
+      37
+    ],
+    [
+      2397,
+      5,
+      71,
+      4,
+      6,
+      0,
+      113,
+      14
+    ],
+    [
+      2427,
+      0,
+      48,
+      47,
+      20,
+      19,
+      25,
+      24
+    ],
+    [
+      2430,
+      10,
+      7,
+      40,
+      12,
+      0,
+      70,
+      41
+    ],
+    [
+      2453,
+      5,
+      4,
+      36,
+      46,
+      29,
+      13,
+      24
+    ],
+    [
+      2461,
+      20,
+      19,
+      13,
+      8,
+      43,
+      13,
+      33
+    ]
+  ],
+  "normal_share": 0.9375095785440613,
+  "total_windows": 26100,
+  "nonconvergence": {
+    "held_steps": 20,
+    "total_steps": 432000,
+    "rate": 4.6296296296296294e-05
+  },
+  "elapsed_s": 95.48,
+  "windows_per_min": 16400.8
+}

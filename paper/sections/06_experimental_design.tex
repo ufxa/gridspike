@@ -1,0 +1,124 @@
+\section{Experimental design}
+\label{sec:design}
+
+The design was fixed and committed \emph{before} any result run started:
+a machine-readable battery manifest enumerates every planned run with its
+full configuration and a SHA-256 configuration hash; a pre-registration
+file lists the hypotheses, their directions, their tests and their
+decision rules; and an analysis module implements every test named
+below.
+
+\subsection{Reference frame and battery}
+\label{sec:design-arms}
+
+Federated results are only interpretable between two bounds, and the
+surveyed application literature usually reports neither. We run both: a
+\emph{centralized ceiling} (pooled data) and a \emph{local-only floor}
+(each substation alone; mean over ten clients), beside FedAvg
+\cite{mcmahan2017}, FedProx \cite{li2020fedprox} and the full pipeline
+with each robust aggregator -- six arms $\times$ three models. The
+attack grid adds four defense variants -- no-defense, Krum-alone,
+geomed-alone and fidelity-only -- so the pipeline is ablated against the
+robust aggregator standing alone (Table~\ref{tab:arms}). One family is
+excluded with a stated reason: root-dataset trust bootstrapping
+\cite{cao2021fltrust} assumes a clean server-held dataset, unavailable
+by design here.
+
+The battery is organized in eleven blocks (Table~\ref{tab:battery}):
+Tier~1 carries the clean reference frame (270 runs) and the attack
+$\times$ defense grid (900 runs, $f_{\mathrm{att}}=3/10$); Tier~2
+carries the sweeps; Tier~3 is the \emph{control battery}, specified on
+2026-07-31 after the registered analysis was complete -- the entire
+Tier-1 grid re-run under the chronological split ($1{,}170$ runs) and
+the attacker-magnitude sweep (432 runs). The merged corpus holds
+$4{,}851$ distinct seeded runs from $6{,}836$ files after two-pass
+deduplication, reconciled in Section~\ref{sec:sup-battery}.
+
+Tier~1 and the temporal controls run \textbf{15} seeds; every Tier-2
+sweep and the magnitude control run \textbf{9} -- at fifteen paired
+seeds an exact one-sided Wilcoxon reaches $2^{-15}$, so every
+pre-registered family is decidable after Holm correction, and one seed
+drives the entire stochastic pipeline, making repetitions independent
+dataset re-draws. The X3 extension mixed two run environments (RTX
+3060/3090/4080, torch 2.4--2.13 for the registered seeds; RTX 5090/4090,
+torch 2.9.1 for the expansion), so temporal cells mix environments by
+construction; a homogeneous-subset analysis on seeds $5$--$14$ leaves
+the headline conclusions unchanged (Section~\ref{sec:sup-seeds}).
+Attack settings are fixed throughout: $\varsigma=0.1$, $\eta=0.15$,
+$s=1$ (swept only in Section~\ref{sec:res-magnitude}), label-flip rate
+$1.0$, all colluding clients sharing one $\omega$ per (seed, round)
+(Section~\ref{sec:sup-attacksettings}).
+
+\subsection{Models, hyperparameters and metrics}
+\label{sec:design-models}
+
+All three models train with an identical budget: 30 federated rounds,
+one local epoch, batch 64, Adam at $10^{-3}$, class-balanced
+cross-entropy \cite{cui2019}. The CNN-LSTM has convolution channels
+$(32,64)$, LSTM hidden 128, dropout $0.3$; the spiking model has width
+256, two LIF layers, $T=8$ unroll steps, temporal-contrast coding at
+$0.2$; the state-space model is four selective-SSM blocks of width 96
+over a stride-4 patch stem ($278{,}216$ parameters, $4{,}590{,}336$ MACs
+per inference). This single optimizer configuration is a \emph{budget
+decision}: only the spiking delta-coding threshold was swept on
+validation \macroF{}; every other hyperparameter was set once on clean
+FedAvg and frozen for every attack, defense and sweep -- no arm gets a
+tuning advantage, and none a rescue, so the spiking collapse of
+Section~\ref{sec:results} is a collapse \emph{under this optimization
+budget} (plain SGD barely moved off initialization, and thresholds below
+$0.1$ fire on the quantized measurement noise).
+
+Every run records accuracy, \macroF{} (headline, over classes present in
+the labels), weighted and per-class F\textsubscript{1} and the confusion
+matrix; under attack, degradation, attacker admission and honest
+false-rejection; consensus messages, simulated latency and the
+rejected-set trace; the R\'enyi budget $\varepsilon$
+(Eq.~\ref{eq:epsilon}); SynOps, MACs, spike rate and estimated energy
+(Eqs.~\ref{eq:synops}--\ref{eq:energy}); measured latency percentiles;
+and cost measures.
+
+\subsection{Statistical protocol and pre-registration}
+\label{sec:design-stats}
+
+The protocol is non-parametric throughout \cite{demsar2006},
+$\alpha=0.05$, two-sided unless a direction is pre-registered: Wilcoxon
+signed-rank on per-seed paired differences with Holm correction
+\cite{holm1979} within each hypothesis family; Friedman with a Nemenyi
+critical-difference diagram for multi-arm comparisons; Cliff's $\delta$
+\cite{cliff1993} beside every $\Delta$\macroF{}; BCa bootstrap
+intervals ($10\,000$ resamples) on every mean; McNemar's exact test plus
+a two-one-sided-tests equivalence check at a $\pm0.02$ margin for matched
+accuracy, so parity can be a positive finding; and Jonckheere--Terpstra
+ordered trends with Spearman secondary.
+
+Five hypotheses were registered before the first Tier-1 run: \textbf{H1},
+the spiking classifier matches the reference's accuracy (equivalence)
+while its estimated energy is far lower; \textbf{H2}, under each attack
+the full pipeline beats no defense; \textbf{H3}, the defense-aware
+attacker evades the gate where sign-flip is caught (H3a) and, being
+admitted, costs at least as much accuracy (H3b); \textbf{H4}, honest
+false-rejection increases monotonically with the DP noise multiplier;
+\textbf{H5}, accuracy degrades with heterogeneity, and plain averaging
+degrades more than the pipeline. Four dated amendments are on record --
+an analysis-code fix restoring Mamba to the test loops, the label-flip
+realization statement, the post-registration control battery, and the X3
+seed extension -- none changing a hypothesis, metric, test or decision
+rule (Section~\ref{sec:sup-amendments}).
+
+\subsection{Reproducibility and AI-methodology disclosure}
+\label{sec:design-repro}
+\label{sec:ai-methodology}
+
+Every run serializes configuration, seed, per-round events, metrics and
+an environment fingerprint; per-run git provenance is mostly absent
+($96.9\%$ of block-labelled records), so regeneration rests on the
+committed manifests, configuration hashes -- re-verifying canonically for
+$66.7\%$ of the original battery's records -- and seeded determinism
+(full audit in Section~\ref{sec:sup-provenance}). Bit-reproducibility is
+claimed on CPU only; all latency benchmarks ran on one fixed reference
+machine; no model was quantized (INT8 rows are analytic re-costings).
+Per journal policy, AI methodology use is disclosed here: AI coding
+assistance was used in implementing the software artifact under author
+review; no AI system generated, imputed, labelled or selected any
+experimental data, chose hypotheses, tests or decision rules, or produced
+any number reported in Section~\ref{sec:results}.

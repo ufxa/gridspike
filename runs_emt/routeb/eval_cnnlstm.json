@@ -1,0 +1,161 @@
+{
+  "config": {
+    "cadence": "cycle",
+    "epochs": 15,
+    "model": "cnnlstm",
+    "split": "by-run 70/15/15",
+    "task": "emt_routeb"
+  },
+  "energy": null,
+  "env_fingerprint": "py3.12.14 | torch 2.13.0+cu130 | cuda none | cpu",
+  "final": {
+    "acc": 0.8912,
+    "confusion": [
+      [
+        105,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        30,
+        21,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        3,
+        0,
+        10,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        29,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        34,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        49,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        23
+      ]
+    ],
+    "macro_f1": 0.903,
+    "macs_per_inference": 2014208,
+    "n_test": 340,
+    "per_class": {
+      "0": {
+        "f1": 0.8607,
+        "precision": 0.7609,
+        "recall": 0.9906,
+        "support": 106
+      },
+      "1": {
+        "f1": 0.56,
+        "precision": 0.875,
+        "recall": 0.4118,
+        "support": 51
+      },
+      "2": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 32
+      },
+      "3": {
+        "f1": 0.8696,
+        "precision": 1.0,
+        "recall": 0.7692,
+        "support": 13
+      },
+      "4": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 29
+      },
+      "5": {
+        "f1": 0.9855,
+        "precision": 0.9714,
+        "recall": 1.0,
+        "support": 34
+      },
+      "6": {
+        "f1": 0.9899,
+        "precision": 1.0,
+        "recall": 0.98,
+        "support": 50
+      },
+      "7": {
+        "f1": 0.9583,
+        "precision": 1.0,
+        "recall": 0.92,
+        "support": 25
+      }
+    }
+  },
+  "git_commit": "unknown",
+  "latency": {
+    "batch": 1,
+    "device": "cpu",
+    "n": 200,
+    "p50_ms": 1.128356030676514,
+    "p95_ms": 1.1499017127789557,
+    "p99_ms": 38.286430158186704
+  },
+  "method": "emt_routeb_cnnlstm",
+  "rounds": [],
+  "seed": 0
+}

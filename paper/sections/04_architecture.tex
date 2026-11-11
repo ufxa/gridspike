@@ -1,0 +1,182 @@
+\section{System architecture and threat model}
+\label{sec:arch}
+
+\sysname{} is organized in four layers (Figure~\ref{fig:pipeline} draws L1 as stage~1,
+L2 as stage~2, L3 as stages~3--5 and L4 as stage~6); what
+follows describes what the released implementation does. The formal
+machinery it summarizes -- federated objective and FedProx term, LIF
+neuron and surrogate, input codings, Krum and geometric-median
+aggregators, PBFT quorum and message accounting, Gaussian/R\'enyi local
+DP -- is collected with its derivations in Supplementary
+Section~\ref{sec:sup-prelim}.
+
+\subsection{L1 -- physics and data generation}
+
+Layer~1 turns feeder models into labelled per-substation windows
+(Section~\ref{sec:testbed}). The sample contract is fixed for every
+model, defense and experiment: $x\in\mathbb{R}^{11\times 64}$ with
+channels
+$(v_a,v_b,v_c,i_a,i_b,i_c,p,q,v_0,i_0,f_{\mathrm{dev}})$ and
+$y\in\{0,\dots,7\}$ over \cls{normal}, \cls{fault\_lg}, \cls{fault\_ll},
+\cls{fault\_llg}, \cls{fault\_3ph}, \cls{overload}, \cls{sag},
+\cls{swell}.
+
+\subsection{L2 -- local training, privacy and poisoning}
+
+The federation runs \emph{in process}: all $K$ trainers, the attack and
+privacy hooks, the pipeline and the evaluation execute sequentially
+under one seeded random-number tree -- a distributed runtime (Flower
+\cite{beutel2020flower}, the declined alternative) cannot guarantee
+bit-level determinism of an attack-and-consensus pipeline under seeded
+randomness, the same reason the Byzantine-robust literature runs custom
+in-process loops \cite{fang2020,cao2021fltrust,shejwalkar2021}. The cost
+is no real network transport; the benefit is exact reproducibility of a
+reported run.
+
+Three model families run on identical footing: a
+\textbf{convolutional--recurrent reference} (CNN-LSTM); a \textbf{spiking
+classifier} (rate or temporal-contrast coding into LIF layers unrolled
+over $T$ steps, trained through an arctangent surrogate,
+Eqs.~\ref{eq:lif}--\ref{eq:surrogate}, with spike counters kept outside
+the autograd graph so Eq.~\ref{eq:synops} is auditable); and a
+\textbf{selective state-space model} (Mamba \cite{gu2023mamba}, a dense
+linear-time sequence model added as a strong non-spiking comparison).
+Under the rare-event prior all three train with class-balanced
+cross-entropy \cite{cui2019} computed from each client's \emph{own}
+labels only -- otherwise the unweighted minimum is ``always predict
+\cls{normal}''.
+
+The per-client submission order is itself a threat-model statement:
+local train $\rightarrow$ local DP (clip, noise) $\rightarrow$ poison
+(if Byzantine) $\rightarrow$ submit. Nothing clips or noises an update
+after the poisoning hook, so local DP is never a bound on malicious
+updates.
+
+\subsection{L3 -- admission, agreement, aggregation and audit}
+\label{sec:l3}
+
+Layer~3 is a \emph{ValidatorFn} plugged into the federated engine
+(Algorithm~\ref{alg:pipeline}).
+
+\begin{algorithm}[tbp]
+\caption{One \sysname{} validation round}
+\label{alg:pipeline}
+\small
+\begin{algorithmic}[1]
+\Require $\{u_i\}_{i=1}^{n}$ (full parameters); $w^{(t)}$; threshold $\tau$;
+  validators $M$, faults $f$; aggregator $A$
+\State $\Delta_i \gets \mathrm{flat}(u_i) - \mathrm{flat}(w^{(t)})$
+  \Comment{direction, not model}
+\State $\bar{\Delta} \gets \mathrm{median}_{\mathrm{coord}}(\Delta_1..\Delta_n)$
+\State $z_i \gets 1 - \cos(\Delta_i, \bar{\Delta})$
+  \Comment{scale-free ballot, $\in[0,2]$}
+\State $P \gets \{ i : z_i \le \tau \}$ \Comment{primary's proposal}
+\State $(c, A^{\!*}, n_{\mathrm{msg}}, \hat{t}) \gets
+  \textsc{Pbft}(M, f, z, \tau)$ \Comment{Eq.~\ref{eq:pbftmsgs}}
+\If{$\lnot c$ \textbf{or} $A^{\!*} = \emptyset$}
+  \State ledger.append$\langle$round, $z$, \textsc{no-commit}$\rangle$
+  \State \Return $w^{(t)}$ \Comment{fail-closed: hold the model}
+\EndIf
+\State $w^{(t+1)} \gets A(\{u_i\}_{i\in A^{\!*}}, f)$
+  \Comment{robust aggregate}
+\State ledger.append$\langle$round, $z$, $A^{\!*}$, $n_{\mathrm{msg}}$,
+  $\hat{t}\rangle$ \Comment{SHA-256 chain}
+\State \Return $w^{(t+1)}$ \Comment{engine strategy bypassed}
+\end{algorithmic}
+\end{algorithm}
+
+\paragraph{Fidelity scoring}
+The ballot is $z_i = 1-\cos(\Delta_i, \bar{\Delta})$ against the
+\emph{coordinate-wise} median of the round's update directions
+$\Delta_i = w_i - w^{(t)}$ -- the cheapest location estimate with
+breakdown point $1/2$, needing no clean server-side reference dataset a
+multi-utility federation cannot have \cite{cao2021fltrust}. Cosine
+distance is scale-free, so one threshold $\tau$ survives learning rate,
+model size and round index; scoring the \emph{direction} rather than the
+full vector is what separates an exactly reversed update from an honest
+one. Degenerate cases score the neutral $1.0$.
+
+\paragraph{Agreement}
+Validators run normal-case PBFT \cite{castro1999} over the public score
+vector: a committing round costs exactly $2M(M-1)$ messages
+(Eq.~\ref{eq:pbftmsgs}), $180$ at the default $M{=}10$, and tolerates
+$f=\lfloor(M-1)/3\rfloor$ faults. The realized fault model -- faulty
+validators vote \emph{against} a deterministic ballot rather than
+equivocating, the primary always honest, authentication and view change
+unmodelled -- is stated exactly in Section~\ref{sec:sup-pbft} and makes
+every reported consensus cost a \textbf{lower bound}.
+
+\paragraph{Aggregation and audit}
+The admitted set is aggregated by Krum, multi-Krum or the geometric
+median (Eqs.~\ref{eq:krum}--\ref{eq:weiszfeld}) and the engine
+\emph{bypasses} its own averaging strategy -- re-averaging a robust
+aggregate would undo it; multi-Krum averaging is deliberately
+unweighted, since $n_k$ is self-reported. Every round appends a record
+to a SHA-256 hash chain -- tamper-evident to edits and interior
+deletions but not to a writer who re-hashes every successor, nor to tail
+truncation; and it is \emph{not persisted}: auditability is a property
+of the design verified by property tests, not a measured result.
+
+\subsection{L4 -- orchestration and provenance}
+
+Layer~4 exists so the numbers regenerate: a manifest enumerates the
+battery as fully specified configurations with SHA-256 hashes and
+deterministic run identifiers, and every run serializes a
+\texttt{RunResult} with configuration, seed, events, metrics and an
+environment fingerprint (audit in Section~\ref{sec:sup-provenance}).
+
+\subsection{Threat model}
+\label{sec:threat}
+
+$K=10$ substations participate fully every round; up to
+$f_{\mathrm{att}}$ are Byzantine -- the headline uses
+$f_{\mathrm{att}}=3$, exactly the tolerance of the $M=10$ committee.
+Byzantine clients submit arbitrary vectors and may collude. Four attacks
+are implemented: \emph{sign-flip} submits $w^{(t)} - s\,\Delta_k$, the
+loud attack every defense catches and the baseline evasion is measured
+against; \emph{Gaussian noise} perturbs every parameter at
+local-DP-like scales -- to a direction-only gate, a noised honest
+client and a noise attacker are the same vector, the whole privacy
+tension; \emph{label flip}, data-level poisoning realized as
+\emph{dynamic per-batch noise} (labels re-drawn each round at
+$\mathrm{frac}=1.0$ -- a weaker adversary than static poisoning); and
+\emph{adaptive cosine}, the defense-aware attacker.
+
+\paragraph{The defense-aware attacker}
+Its knowledge is granted generously and stated exactly. It
+\textbf{knows}: the admission rule and a target score $\varsigma$; the
+round-start global parameters; its own honest training result; and the
+previous aggregate, so $w^{(t)}-w^{(t-1)}$ gives the best \emph{public}
+estimate of the honest direction. It \textbf{does not know}: other
+clients' updates, the realized median, which validators are faulty, or
+any aggregator state -- defense-aware but not omniscient
+\cite{fang2020,shejwalkar2021}. Given a unit estimate $u$ of the honest
+direction and its own honest direction $h$, it works in angles, the
+cosine constraint being a cone half-angle:
+\begin{align}
+\theta_{\mathrm{budget}} &= \arccos(1-\varsigma), \qquad
+\theta_{\mathrm{err}} = \angle(h,u)\big/\sqrt{K}, \nonumber\\
+\theta &= \max\!\left(0,\, \theta_{\mathrm{budget}}-\theta_{\mathrm{err}}\right)(1-\eta), \nonumber\\
+\Delta^{\mathrm{adv}} &= s\,\lVert h\rVert\bigl(\cos\theta\; u + \sin\theta\; \omega\bigr),
+\label{eq:adaptive}
+\end{align}
+with $\eta$ a safety margin and $\omega$ a unit vector orthogonal to
+$u$, drawn identically by all colluding clients per (seed, round) -- the
+coalition lands on a single point of the cone, and $f$ mutually
+identical malicious vectors are their own dense neighbourhood, which is
+what defeats a nearest-neighbour selector \cite{blanchard2017}. Since
+$u \perp \omega$, the construction holds its score identically in one
+evaluation, with no query to the defense. Two precisions matter:
+$\varsigma$ is a \emph{fixed attacker-side parameter} -- the attacker
+never reads $\tau$, so at $\tau=0.5$ it aims at a fifth of the tolerated
+score, understating its measured evasion; and in round $0$, with no
+previous aggregate to aim at, it \textbf{submits its honest direction}.
+
+The magnitude lever $s$ is deliberately separate: cosine is scale-free,
+so $s>1$ submits the same direction with several times the norm,
+dragging an \emph{averaging} aggregator proportionally further while the
+score does not move. Its default is $s=1$ so no headline result rests on
+a trivially clippable norm; the lever is swept in
+Section~\ref{sec:res-magnitude}. The geometry is not new
+\cite{baruch2019,xie2019,shejwalkar2021}; tying it to the deployed
+statistic and carrying it through agreement into measured damage is.

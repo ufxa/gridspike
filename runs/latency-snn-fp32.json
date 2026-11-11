@@ -1,0 +1,39 @@
+{
+  "config": {
+    "manifest": {
+      "config": {
+        "model": {
+          "name": "snn"
+        },
+        "precision": "FP32"
+      },
+      "model": "snn",
+      "run_id": "latency-snn-fp32"
+    }
+  },
+  "energy": null,
+  "env_fingerprint": "py3.12.13 | torch 2.13.0+cu130 | cuda 13.0 | NVIDIA GeForce RTX 3090",
+  "final": {
+    "latency_bench": true
+  },
+  "git_commit": "1703c80bad8be32d48843f28661df5f48a3641a0",
+  "latency": {
+    "cpu": {
+      "mean_ms": 5.76156294,
+      "p50_ms": 4.9399,
+      "p95_ms": 10.519417899999999,
+      "p99_ms": 16.070125339999997,
+      "pct_of_goose": 401.75313349999993
+    },
+    "cuda": {
+      "mean_ms": 8.302744192,
+      "p50_ms": 7.8211175,
+      "p95_ms": 11.919730649999998,
+      "p99_ms": 16.933593589999997,
+      "pct_of_goose": 423.33983974999995
+    }
+  },
+  "method": "snn",
+  "rounds": [],
+  "seed": 0
+}

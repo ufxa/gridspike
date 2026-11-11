@@ -1,0 +1,63 @@
+GRIDSPIKE — pacote de submissão
+================================
+
+Manuscrito anonimizado para Engineering Applications of Artificial Intelligence
+(Elsevier). Este pacote contém o manuscrito, o material suplementar, o código
+e todos os resultados experimentais para auditoria.
+
+PDFs PRINCIPAIS (paper/)
+------------------------
+  main.pdf            — manuscrito: 18 pp, layout final 2 colunas, com todas
+                        as figuras (fluxograma do pipeline na Fig. 1, gráficos
+                        gerados dos resultados nas Figs. 3-9)
+  supplementary.pdf   — material suplementar (64 pp): bateria estatística
+                        completa, formalismo, auditoria de dados e as tabelas
+                        exatas por trás de cada figura (Tables S23-S29)
+  titlepage.pdf       — página de título separada (double-anonymous)
+
+  NOTA: para submissão à EAAI, basta trocar a linha 11 de main.tex para
+  \documentclass[review,12pt]{elsarticle} e recompilar — o formato de
+  revisão (espaçamento duplo) sai com ~50 pp, que é o esperado.
+
+COMO RECOMPILAR
+---------------
+  cd paper && make
+  (ou: pdflatex main && bibtex main && pdflatex main x2;
+   supplementary.tex compila do mesmo jeito;
+   o Makefile cuida da ordem: supplementary -> supplabels -> main)
+  python paper/check.py   — verifica resumo, highlights, refs, page-limit
+
+CÓDIGO
+------
+  src/fedgrid/      — pacote (modelos, federação, defesas, ataques, ledger)
+  experiments/      — run_one.py (executor de um run), report.py (gera as tabelas
+                      do paper), manifest*.jsonl (runs pré-registrados),
+                      gen_*.py (geradores de manifesto), emt_routeb.py
+                      (validação EMT com DPsim), fleet/ (execução distribuída)
+  tests/            — suíte de testes
+  data_battery/     — federações OpenDSS pré-geradas
+
+RESULTADOS (um JSON por run, auditável)
+---------------------------------------
+  runs/             bateria original (seeds t1:0-4, t2:0-2)
+  runs_snn_fixed/   bateria SNN corrigida
+  runs_x3/          expansão CNN/SNN (seeds t1:5-14, t2:3-8)
+  runs_ssm_x3/      expansão SSM/Mamba
+  runs_gap_x3/      complemento (temporal, t3tau, t4mag, t2e)
+  runs_emt/         validação DPsim/EMT (450 simulações)
+  runs_real*/       probes em dados reais
+  runs_ceiling_fixed/, runs_rate_fixed/ — probes auxiliares (os tetos de
+                    runs_ceiling_fixed/ usam a perda antiga, sem ponderação;
+                    o artigo usa as reexecuções effective_num de runs_x3/)
+
+  Cada run_id casa com uma linha de experiments/manifest*.jsonl.
+  Tabelas do paper são regeneradas a partir desse corpus por report.py
+  (ver docstring para a CLI exata).
+
+DOCUMENTAÇÃO
+------------
+  docs/X3_ANALYSIS.md  — análise estatística completa (claim a claim)
+  docs/EMT_ROUTE_B.md  — desenho e limitações da validação EMT
+  docs/REALISM.md, docs/VALIDATION_STANDARD.md, docs/ARCHITECTURE.md,
+  docs/SOTA.md, docs/OPEN_QUESTIONS.md — notas de projeto
+  experiments/HYPOTHESES.md — pré-registro + emendas
