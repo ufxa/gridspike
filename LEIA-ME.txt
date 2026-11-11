@@ -10,7 +10,7 @@ PDFs PRINCIPAIS (paper/)
   main.pdf            — manuscrito: 18 pp, layout final 2 colunas, com todas
                         as figuras (fluxograma do pipeline na Fig. 1, gráficos
                         gerados dos resultados nas Figs. 3-9)
-  supplementary.pdf   — material suplementar (64 pp): bateria estatística
+  supplementary.pdf   — material suplementar (63 pp): bateria estatística
                         completa, formalismo, auditoria de dados e as tabelas
                         exatas por trás de cada figura (Tables S23-S29)
   titlepage.pdf       — página de título separada (double-anonymous)

@@ -19,6 +19,8 @@
 \usepackage{multirow}
 \usepackage{tabularx}
 \usepackage{rotating}
+% landscape pages that also open rotated in PDF viewers (wide tables S1 and S21)
+\usepackage{pdflscape}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage[hidelinks]{hyperref}
@@ -354,7 +356,8 @@ adjacency, and the distinction is clean: those classifiers consume
 network packets, ours consume electrical measurement windows; none is
 quantized, spiking or federated.
 
-\begin{sidewaystable*}
+\begin{landscape}
+\begin{table}[p]
 \centering
 \caption{Positioning against the closest prior systems}
 \label{tab:positioning}
@@ -386,7 +389,8 @@ Moore \cite{moore2026}                  & GOOSE pkt& RNN/AE & --        & --    
 \bottomrule
 \end{tabular*}
 \tablenota{\emph{Domain}: PMU phasor measurement; ICS industrial control data; Img image benchmarks; Sub substation measurement windows. \emph{DA-att.}: defense-aware attacker. \emph{Cons./Ovh.}: agreement or ledger layer / its overhead reported. \emph{Energy}: per-inference energy accounting. \emph{Lat.}: latency against a named protocol budget. \checkmark{} present, -- absent, ($\sim$) partial.}
-\end{sidewaystable*}
+\end{table}
+\end{landscape}
 
 The point of the table is not that any single column is unclaimed --
 several are -- but that no prior system occupies the intersection.
@@ -1200,12 +1204,14 @@ paired $0.764$).
 \subsection{The complete statistical battery and hypothesis verdicts}
 \label{sec:sup-res-stats}
 
-\begin{sidewaystable*}
+\begin{landscape}
+\begin{table}[p]
 \centering
 \caption{Complete pre-registered statistical battery (random split)}
 \label{tab:stats}
 \input{tables/tab_stats}
-\end{sidewaystable*}
+\end{table}
+\end{landscape}
 
 \begin{table*}[tbp]
 \centering
